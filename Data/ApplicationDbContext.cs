@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PetAdoptionMVC.Models;
+
 
 namespace PetAdoptionMVC.Data
 {
@@ -7,9 +9,11 @@ namespace PetAdoptionMVC.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
             : base(options) 
-            {
+        {
             
-            }
+        }
+
+        public DbSet<Animal> Animal {  get; set; } 
     }
 }
       
