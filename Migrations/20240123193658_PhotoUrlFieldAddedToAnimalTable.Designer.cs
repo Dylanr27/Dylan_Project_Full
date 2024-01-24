@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetAdoptionMVC.Data;
 
@@ -11,9 +12,11 @@ using PetAdoptionMVC.Data;
 namespace PetAdoptionMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240123193658_PhotoUrlFieldAddedToAnimalTable")]
+    partial class PhotoUrlFieldAddedToAnimalTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,14 +46,14 @@ namespace PetAdoptionMVC.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhotoUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sex")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Size")
@@ -72,9 +75,9 @@ namespace PetAdoptionMVC.Migrations
                             Age = 7,
                             Breed = "Russian Blue",
                             Description = "Rescue",
+                            Gender = "Boy",
                             Name = "Gizmo",
-                            PhotoUrl = "/lib/Images/pexels-monica-oprea-9718154.jpg",
-                            Sex = "Male",
+                            PhotoUrl = "\"C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\pexels-nothing-ahead-17987994 (1).jpg\"",
                             Size = "M",
                             Species = "Cat"
                         });
