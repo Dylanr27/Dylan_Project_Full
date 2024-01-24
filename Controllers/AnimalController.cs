@@ -16,5 +16,10 @@ namespace PetAdoptionMVC.Controllers
             List<Animal> objAnimalList = _db.Animal.ToList();
             return View(objAnimalList);
         }
+
+        public IActionResult Create() 
+        {
+            return View();
+        }
     }
 }

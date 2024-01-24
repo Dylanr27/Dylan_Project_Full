@@ -19,7 +19,7 @@ namespace PetAdoptionMVC.Data
         {
             modelBuilder.Entity<Animal>().HasData(
                 new Animal {  
-                    Id = 1, 
+                    Id = 1,
                     Name = "Gizmo", 
                     Age = 7,
                     Species = "Cat",
