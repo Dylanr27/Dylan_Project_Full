@@ -24,6 +24,6 @@ body {
 td, th{
     text-align: center;
 }
-.animal-header {
+.animal-header, .create-header {
     text-align: center;
 }
