@@ -10,7 +10,8 @@ namespace PetAdoptionMVC.Models
 
         [Required]
         public string Name { get; set; }
-
+        
+        [Range(0,30, ErrorMessage = "Age must be between 0-30")]
         public int? Age { get; set; }
 
         [Required]

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetAdoptionMVC.Data;
 using PetAdoptionMVC.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PetAdoptionMVC.Controllers
 {
@@ -24,9 +25,50 @@ namespace PetAdoptionMVC.Controllers
         [HttpPost]
         public IActionResult Create(Animal animal) 
         {
-            _db.Animal.Add(animal);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid) 
+            {
+                _db.Animal.Add(animal);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+   
         }
+
+        public IActionResult Edit(int? id)
+        {
+            Console.WriteLine("Selected animals id: " + id);
+            if (id == null || id == 0) 
+            {
+                Console.WriteLine("Selected animals id: " + id);
+                return NotFound();
+            }
+            Animal? animalFromDb = _db.Animal.Find(id);
+
+            if (animalFromDb == null) 
+            {
+                return NotFound();
+            }
+
+            return View(animalFromDb);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Animal animal) 
+        {
+            if (ModelState.IsValid) 
+            {
+                _db.Animal.Update(animal);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        //public IActionResult Delete(int? id) 
+        //{
+          //  return View(animal);
+        //}
+        
     }
 }
