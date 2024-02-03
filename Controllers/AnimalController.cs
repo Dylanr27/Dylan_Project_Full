@@ -37,10 +37,8 @@ namespace PetAdoptionMVC.Controllers
 
         public IActionResult Edit(int? id)
         {
-            Console.WriteLine("Selected animals id: " + id);
             if (id == null || id == 0) 
             {
-                Console.WriteLine("Selected animals id: " + id);
                 return NotFound();
             }
             Animal? animalFromDb = _db.Animal.Find(id);
@@ -65,10 +63,37 @@ namespace PetAdoptionMVC.Controllers
             return View();
         }
 
-        //public IActionResult Delete(int? id) 
-        //{
-          //  return View(animal);
-        //}
-        
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0) 
+            {
+                return NotFound();
+            }
+
+            Animal? animalFromDb = _db.Animal.Find(id);
+
+            if (animalFromDb == null) 
+            {
+                return NotFound();
+            }
+
+            return View(animalFromDb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult Delete(int id) 
+        {
+            Animal? animalFromDb = _db.Animal.Find(id);
+
+            if(animalFromDb == null) 
+            {
+                return NotFound();
+            }
+
+            _db.Animal.Remove(animalFromDb);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
