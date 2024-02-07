@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetAdoptionMVC.Data;
 using PetAdoptionMVC.Models;
-using System.Reflection.Metadata.Ecma335;
 
 namespace PetAdoptionMVC.Controllers
 {
@@ -29,8 +28,11 @@ namespace PetAdoptionMVC.Controllers
             {
                 _db.Animal.Add(animal);
                 _db.SaveChanges();
+                TempData["success"] = "Animal added successfully";
+
                 return RedirectToAction("Index");
             }
+            TempData["error"] = "Error adding animal";
             return View();
    
         }
@@ -58,8 +60,10 @@ namespace PetAdoptionMVC.Controllers
             {
                 _db.Animal.Update(animal);
                 _db.SaveChanges();
+                TempData["success"] = "Animal updated successfully";
                 return RedirectToAction("Index");
             }
+            TempData["error"] = "Error adding animal";
             return View();
         }
 
@@ -92,6 +96,7 @@ namespace PetAdoptionMVC.Controllers
 
             _db.Animal.Remove(animalFromDb);
             _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }
 
