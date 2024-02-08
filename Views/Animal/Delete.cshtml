@@ -1,6 +1,6 @@
 ﻿@model Animal
 
-<div class="card shadow border-0 card-margin">
+<div class="card shadow border-0 pb-3 card-margin">
 
     <div class="card-header bg-primary bg-gradient ml-0 py-3">
 
@@ -17,115 +17,114 @@
     </div>
 
     <div class="card-body">
-        <form method="post">
 
-            <div class="border px-4">
+        <form method="post" class="row">
 
-                <div class="row pb-3">
+            <div class="border-0 px-4">
 
-                    <div class="mb-2 row">
+                <div class="form-floating py-2 col-12">
 
-                        <label asp-for="Name" class="p-1"></label>
+                    <input asp-for="Name" class="form-control shadow" disabled />
 
-                        <input asp-for="Name" class="form-control" disabled />
+                    <label asp-for="Name" class="ms-2"></label>
+
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="Age" class="form-control shadow" disabled />
+
+                    <label asp-for="Age" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <select asp-for="Species" class="form-control shadow" disabled >
+                        <option value="Cat">Cat</option>
+                        <option value="Dog">Dog</option>
+                    </select>
+
+                    <label asp-for="Species" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="Breed" class="form-control shadow" disabled />
+
+                    <label asp-for="Breed" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <select asp-for="Sex" class="form-control shadow" disabled >
+                        <option value=""></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+
+                    <label asp-for="Sex" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <select asp-for="Size" class="form-control shadow" disabled >
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+
+                    <label asp-for="Size" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="Description" class="form-control shadow" disabled />
+
+                    <label asp-for="Description" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+
+                    <select asp-for="AdoptionStatus" class="form-control shadow" disabled >
+                        <option value="Available">Available</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Adopted">Adopted</option>
+                    </select>
+
+                    <label asp-for="AdoptionStatus" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="PhotoUrl" class="form-control shadow" disabled />
+
+                    <label asp-for="PhotoUrl" class="ms-2"></label>
+
+                </div>
+
+                <div class="row pt-3">
+
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-danger rounded-left form-control">Delete</button>
                     </div>
 
-                    <div class="mb-2 row">
+                    <div class="col-6">
 
-                        <label asp-for="Age" class="p-1"></label>
+                        <a asp-controller="Animal"
+                           asp-action="Index"
+                           class="btn btn-secondary form-control rounded-right">
+                            Back to List
+                        </a>
 
-                        <input asp-for="Age" class="form-control" disabled />
-
-                        <span asp-validation-for="Age" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="Species" class="p-1"></label>
-
-                        <select asp-for="Species" class="form-control" disabled>
-                            <option value="Cat">Cat</option>
-                            <option value="Dog">Dog</option>
-                        </select>
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="Breed" class="p-1"></label>
-
-                        <input asp-for="Breed" class="form-control" disabled />
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="Sex" class="p-1"></label>
-
-                        <select asp-for="Sex" class="form-control" disabled>
-                            <option value=""></option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="Size" class="p-1"></label>
-
-                        <select asp-for="Size" class="form-control" disabled>
-                            <option value="Small">Small</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Large">Large</option>
-                        </select>
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="Description" class="p-1"></label>
-
-                        <input asp-for="Description" class="form-control" disabled />
-
-                    </div>
-
-                    <div class="mb-2 row">
-
-                        <label asp-for="AdoptionStatus" class="p-1"></label>
-
-                        <select asp-for="AdoptionStatus" class="form-control" disabled>
-                            <option value="Available">Available</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Adopted">Adopted</option>
-                        </select>
-
-                    </div>
-
-                    <div class="mb-3 row">
-
-                        <label asp-for="PhotoUrl" class="p-1"></label>
-
-                        <input asp-for="PhotoUrl" class="form-control" disabled />
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-danger form-control">Delete Animal</button>
-                        </div>
-
-                        <div class="col-6">
-
-                            <a asp-controller="Animal"
-                               asp-action="Index"
-                               class="btn btn-secondary border form-control">
-                                Back to List
-                            </a>
-
-                        </div>
                     </div>
 
                 </div>
@@ -133,7 +132,9 @@
             </div>
 
         </form>
+
     </div>
 
 </div>
+
     
