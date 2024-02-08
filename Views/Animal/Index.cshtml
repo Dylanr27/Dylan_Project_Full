@@ -1,6 +1,137 @@
 ﻿@model List<Animal>
 
-<div class="container">
+<div class="card shadow border-0 pb-3 card-margin">
+
+    <div class="card-header bg-primary bg-gradient ml-0 py-3">
+
+        <div class="row">
+
+            <div class="col-8">
+
+                <h2 class="text-white">Animals looking for a forever home</h2>
+
+            </div>
+
+            <div class="col-4 text-end">
+
+                <a asp-controller="Animal"
+                   asp-action="Create"
+                   class="btn border btn-outline-secondary text-white">
+                    <i class="bi bi-plus-circle"> Add Animal</i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-striped border-easy">
+
+            <thead>
+
+                <tr>
+
+                    <th class="col-3">
+                        Name
+                    </th>
+
+                    <th class="col-1">
+                        Age
+                    </th>
+
+                    <th class="col-1">
+                        Species
+                    </th>
+
+                    <th class="col-2">
+                        Breed
+                    </th>
+
+                    <th class="col-1">
+                        Sex
+                    </th>
+
+                    <th class="col-2">
+                        Adoption Status
+                    </th>
+
+                    <th class="col-3">
+                        Photo
+                    </th>
+                    <th>
+                        <i class="bi bi-pencil-square"></i> / <i class="bi bi-trash"></i>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var obj in Model.OrderBy(u => u.AdoptionStatus))
+                {
+
+                    <tr>
+
+                        <td>
+                            @obj.Name
+                        </td>
+
+                        <td>
+                            @obj.Age
+                        </td>
+
+                        <td>
+                            @obj.Species
+                        </td>
+
+                        <td>
+                            @obj.Breed
+                        </td>
+
+                        <td>
+                            @obj.Sex
+                        </td>
+
+                        <td>
+                            @obj.AdoptionStatus
+                        </td>
+
+                        <td>
+                            <img src="@obj.PhotoUrl"
+                                 width="80px"
+                                 height="120px"
+                                 class="rounded" />
+                        </td>
+
+                        <td>
+
+                            <div class="w-75 btn-group-md" role="group">
+
+                                <a asp-controller="Animal" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+
+                                <a asp-controller="Animal" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+@* <div class="container">
 
     <div class="row pt-4 pb-3">
 
@@ -25,108 +156,6 @@
 
     </div>
 
-    <table class="table table-bordered table-striped border-easy">
+    
 
-        <thead>
-
-            <tr>
-
-                <th class="col-3">
-                    Name
-                </th>
-
-                <th class="col-1">
-                    Age
-                </th>
-
-                <th class="col-1">
-                    Species
-                </th>
-
-                <th class="col-2">
-                    Breed
-                </th>
-
-                <th class="col-1">
-                    Sex
-                </th>
-
-                <th class="col-2">
-                    Adoption Status
-                </th>
-            
-                <th class="col-3">
-                    Photo
-                </th>
-                <th>
-                    <i class="bi bi-pencil-square"></i> / <i class="bi bi-trash"></i>
-                </th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            @foreach(var obj in Model.OrderBy(u=>u.AdoptionStatus))
-            {
-
-                <tr>
-
-                    <td>
-                        @obj.Name
-                    </td>
-                
-                    <td>
-                        @obj.Age
-                    </td>
-                
-                    <td>
-                        @obj.Species
-                    </td>
-                
-                    <td>
-                        @obj.Breed
-                    </td>
-
-                    <td>
-                        @obj.Sex
-                    </td>
-
-                    <td>
-                        @obj.AdoptionStatus
-                    </td>
-
-                    <td>
-                        <img src="@obj.PhotoUrl" 
-                            width="80px" 
-                            height="120px"
-                            class="rounded"/
-                        >
-                    </td>
-
-                    <td>
-
-                        <div class="w-75 btn-group-md" role="group">
-
-                            <a asp-controller="Animal" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
-                                <i class="bi bi-pencil-square"></i> Edit
-                            </a>
-
-                            <a asp-controller="Animal" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1">
-                                <i class="bi bi-trash-fill"></i> Delete
-                            </a>
-
-                        </div>
-
-                    </td>
-
-                </tr>
-
-            }
-
-        </tbody>
-
-    </table>
-
-</div>
+</div> *@

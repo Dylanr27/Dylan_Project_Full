@@ -10,7 +10,7 @@ body {
     padding-right: 1.1035rem;
 }
 .card-margin {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     margin-bottom: 4rem;
 }
 
@@ -26,6 +26,7 @@ body {
 
 .border-easy {
     border-style: solid;
+    border-width: 1px;
     border-color: #d5d5d5
 }
 
