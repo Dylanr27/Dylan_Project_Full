@@ -15,15 +15,38 @@ html {
 html {
   position: relative;
   min-height: 100%;
+
+  scroll-behavior: smooth;
 }
 
 body {
   margin-bottom: 60px;
+  background-color: #e0e0e0
 }
 
 td, th{
     text-align: center;
 }
+
+.rounded-left {
+    border-top-left-radius: 0.75rem; /* Adjust as needed */
+    border-bottom-left-radius: 0.75rem; /* Adjust as needed */
+}
+
+.rounded-right {
+    border-top-right-radius: 0.75rem; /* Adjust as needed */
+    border-bottom-right-radius: 0.75rem; /* Adjust as needed */
+}
+.border-easy {
+    border-style: solid;
+    border-color: #d5d5d5
+}
+
 .animal-header, .create-header {
     text-align: center;
 }
+
+.hoverable {
+    text-shadow: 10px 10px 10px 10px #4cff00;
+}
+
