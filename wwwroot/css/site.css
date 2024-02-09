@@ -29,6 +29,9 @@ body {
     border-width: 1px;
     border-color: #d5d5d5
 }
+td, th {
+    text-align: center;
+}
 
     /**/
     a.navbar-brand

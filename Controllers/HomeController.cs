@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PetAdoptionMVC.Models;
+using PetAdoption.Models;
 using System.Diagnostics;
 
 namespace PetAdoptionMVC.Controllers

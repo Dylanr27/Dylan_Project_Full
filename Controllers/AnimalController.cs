@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PetAdoptionMVC.Data;
-using PetAdoptionMVC.Models;
+using PetAdoption.Models;
+using PetAdoptionMVC.DataAccess.Data;
 
 namespace PetAdoptionMVC.Controllers
 {
