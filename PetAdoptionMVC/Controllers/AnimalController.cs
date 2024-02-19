@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetAdoption.Models;
-using PetAdoptionMVC.DataAccess.Data;
+using PetAdoption.DataAccess.Data;
+using PetAdoption.DataAccess.Repository.IRepository;
 
 namespace PetAdoptionMVC.Controllers
 {
     public class AnimalController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public AnimalController(ApplicationDbContext db) 
+        private readonly IAnimalRepository _animalRepo;
+        public AnimalController(IAnimalRepository db) 
         {
-            _db= db;
+            _animalRepo= db;
         }
         public IActionResult Index()
         {
-            List<Animal> objAnimalList = _db.Animal.ToList();
+            List<Animal> objAnimalList = _animalRepo.GetAll().ToList();
             return View(objAnimalList);
         }
         public IActionResult Create() 
@@ -26,8 +27,8 @@ namespace PetAdoptionMVC.Controllers
         {
             if(ModelState.IsValid) 
             {
-                _db.Animal.Add(animal);
-                _db.SaveChanges();
+                _animalRepo.Add(animal);
+                _animalRepo.Save();
                 TempData["success"] = "Animal added successfully";
 
                 return RedirectToAction("Index");
@@ -43,7 +44,7 @@ namespace PetAdoptionMVC.Controllers
             {
                 return NotFound();
             }
-            Animal? animalFromDb = _db.Animal.Find(id);
+            Animal? animalFromDb = _animalRepo.Get(u=>u.Id==id);
 
             if (animalFromDb == null) 
             {
@@ -58,8 +59,8 @@ namespace PetAdoptionMVC.Controllers
         {
             if (ModelState.IsValid) 
             {
-                _db.Animal.Update(animal);
-                _db.SaveChanges();
+                _animalRepo.Update(animal);
+                _animalRepo.Save();
                 TempData["success"] = "Animal updated successfully";
                 return RedirectToAction("Index");
             }
@@ -74,7 +75,7 @@ namespace PetAdoptionMVC.Controllers
                 return NotFound();
             }
 
-            Animal? animalFromDb = _db.Animal.Find(id);
+            Animal? animalFromDb = _animalRepo.Get(u => u.Id == id);
 
             if (animalFromDb == null) 
             {
@@ -87,15 +88,15 @@ namespace PetAdoptionMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult Delete(int id) 
         {
-            Animal? animalFromDb = _db.Animal.Find(id);
+            Animal? animalFromDb = _animalRepo.Get(u => u.Id == id);
 
             if(animalFromDb == null) 
             {
                 return NotFound();
             }
 
-            _db.Animal.Remove(animalFromDb);
-            _db.SaveChanges();
+            _animalRepo.Remove(animalFromDb);
+            _animalRepo.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }

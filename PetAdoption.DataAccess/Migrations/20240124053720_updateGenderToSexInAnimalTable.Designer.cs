@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PetAdoptionMVC.DataAccess.Data;
+using PetAdoption.DataAccess.Data;
 
 #nullable disable
 
-namespace PetAdoptionMVC.DataAccess.Migrations
+namespace PetAdoption.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240124053720_updateGenderToSexInAnimalTable")]

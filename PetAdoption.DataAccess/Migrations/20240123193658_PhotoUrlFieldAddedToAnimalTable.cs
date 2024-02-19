@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace PetAdoptionMVC.DataAccess.Migrations
+namespace PetAdoption.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class PhotoUrlFieldAddedToAnimalTable : Migration
