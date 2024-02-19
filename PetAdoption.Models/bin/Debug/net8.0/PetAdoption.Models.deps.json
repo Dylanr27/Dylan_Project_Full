@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "PetAdoption.Models/1.0.0": {
+        "runtime": {
+          "PetAdoption.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PetAdoption.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
