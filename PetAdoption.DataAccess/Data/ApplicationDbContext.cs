@@ -2,7 +2,7 @@
 using PetAdoption.Models;
 
 
-namespace PetAdoptionMVC.DataAccess.Data
+namespace PetAdoption.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
