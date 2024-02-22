@@ -1,5 +1,4 @@
-﻿using PetAdoption.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace PetAdoption.DataAccess.Repository.IRepository
 {
-    public interface IAnimalRepository : IRepository<Animal>
+    public interface IUnitOfWork
     {
-        void Update(Animal obj);
+        IAnimalRepository animal { get; }
 
+        void Save();
     }
 }

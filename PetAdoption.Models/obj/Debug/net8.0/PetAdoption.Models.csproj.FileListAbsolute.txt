@@ -32,3 +32,15 @@ C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\D
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylans-Project_FullProject\PetAdoption.Models\obj\Debug\net8.0\refint\PetAdoption.Models.dll
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylans-Project_FullProject\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.pdb
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylans-Project_FullProject\PetAdoption.Models\obj\Debug\net8.0\ref\PetAdoption.Models.dll
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Models.deps.json
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Models.dll
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Models.pdb
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.AssemblyInfoInputs.cache
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.AssemblyInfo.cs
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.csproj.CoreCompileInputs.cache
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.sourcelink.json
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.dll
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\refint\PetAdoption.Models.dll
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.pdb
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\ref\PetAdoption.Models.dll
