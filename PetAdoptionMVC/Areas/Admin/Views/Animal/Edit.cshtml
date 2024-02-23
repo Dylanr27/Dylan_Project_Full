@@ -8,7 +8,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 class="text-white">Enter details for new animal</h2>
+                <h2 class="text-white">Edit details of the animal</h2>
 
             </div>
 
@@ -25,7 +25,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <input asp-for="Name" class="form-control shadow" />
-                    
+
                     <label asp-for="Name" class="ms-2"></label>
 
 
@@ -55,7 +55,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <input asp-for="Breed" class="form-control shadow" />
-                    
+
                     <label asp-for="Breed" class="ms-2"></label>
 
                 </div>
@@ -94,19 +94,6 @@
 
                 <div class="form-floating py-2 col-12">
 
-
-                    <select asp-for="AdoptionStatus" class="form-control shadow">
-                        <option value="Available">Available</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Adopted">Adopted</option>
-                    </select>
-
-                    <label asp-for="AdoptionStatus" class="ms-2"></label>
-
-                </div>
-
-                <div class="form-floating py-2 col-12">
-
                     <input asp-for="PhotoUrl" class="form-control shadow" />
 
                     <label asp-for="PhotoUrl" class="ms-2"></label>
@@ -116,14 +103,14 @@
                 <div class="row pt-3">
 
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary rounded-left form-control">Add</button>
+                        <button type="submit" class="btn btn-primary rounded-left form-control">Finish Editing</button>
                     </div>
 
                     <div class="col-6">
 
                         <a asp-controller="Animal"
-                            asp-action="Index"
-                            class="btn btn-warning form-control rounded-right">
+                           asp-action="Index"
+                           class="btn btn-warning form-control rounded-right">
                             Back to List
                         </a>
 
@@ -138,4 +125,3 @@
     </div>
 
 </div>
-

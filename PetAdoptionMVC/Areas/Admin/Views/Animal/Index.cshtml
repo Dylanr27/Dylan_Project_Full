@@ -53,10 +53,6 @@
                         Sex
                     </th>
 
-                    <th class="col-2">
-                        Adoption Status
-                    </th>
-
                     <th class="col-3">
                         Photo
                     </th>
@@ -70,7 +66,7 @@
 
             <tbody>
 
-                @foreach (var obj in Model.OrderBy(u => u.AdoptionStatus))
+                @foreach (var obj in Model.OrderBy(u => u.Species))
                 {
 
                     <tr>
@@ -96,14 +92,10 @@
                         </td>
 
                         <td>
-                            @obj.AdoptionStatus
-                        </td>
-
-                        <td>
                             <img src="@obj.PhotoUrl"
-                                 width="80px"
-                                 height="120px"
-                                 class="rounded" />
+                                    width="80px"
+                                    height="120px"
+                                    class="rounded" />
                         </td>
 
                         <td>
@@ -124,38 +116,11 @@
 
                     </tr>
 
-                }
+               }
 
-            </tbody>
+        </tbody>
 
-        </table>
-    </div>
+    </table>
 
-@* <div class="container">
+</div>
 
-    <div class="row pt-4 pb-3">
-
-        <div class="col-8">
-
-            <h2 class="text-primary animal-header">
-                Animals Looking For A Forever Home
-            </h2>
-
-        </div>
-
-        <div class="col-4 text-end">
-
-            <a asp-controller="Animal" 
-                    asp-action="Create" 
-                    class="btn btn-primary"
-            >
-                <i class="bi bi-plus-circle"> Add Animal</i>
-            </a>
-
-        </div>
-
-    </div>
-
-    
-
-</div> *@

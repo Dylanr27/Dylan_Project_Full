@@ -27,7 +27,6 @@ namespace PetAdoption.DataAccess.Data
                     Sex = "Male",
                     Size = "M",
                     Description = "Rescue",
-                    AdoptionStatus = "Available",
                     PhotoUrl = "/lib/Images/pexels-monica-oprea-9718154.jpg"
                 }
             );

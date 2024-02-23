@@ -23,9 +23,6 @@ namespace PetAdoption.Models
 
         public string? Description { get; set; }
 
-        [DisplayName("Adoption Status")]
-        public required string AdoptionStatus { get; set; }
-
         [DisplayName("Photo Url")]
         public string? PhotoUrl { get; set; }
     }

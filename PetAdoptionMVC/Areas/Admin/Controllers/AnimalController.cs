@@ -3,12 +3,13 @@ using PetAdoption.Models;
 using PetAdoption.DataAccess.Data;
 using PetAdoption.DataAccess.Repository.IRepository;
 
-namespace PetAdoptionMVC.Controllers
+namespace PetAdoptionMVC.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AnimalController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public AnimalController(IUnitOfWork unitOfWork) 
+        public AnimalController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -17,15 +18,15 @@ namespace PetAdoptionMVC.Controllers
             List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
             return View(objAnimalList);
         }
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Animal animal) 
+        public IActionResult Create(Animal animal)
         {
-            if(ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 _unitOfWork.animal.Add(animal);
                 _unitOfWork.Save();
@@ -35,18 +36,18 @@ namespace PetAdoptionMVC.Controllers
             }
             TempData["error"] = "Error adding animal";
             return View();
-   
+
         }
 
         public IActionResult Edit(int? id)
         {
-            if (id == null || id == 0) 
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            Animal? animalFromDb = _unitOfWork.animal.Get(u=>u.Id==id);
+            Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
 
-            if (animalFromDb == null) 
+            if (animalFromDb == null)
             {
                 return NotFound();
             }
@@ -55,9 +56,9 @@ namespace PetAdoptionMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Animal animal) 
+        public IActionResult Edit(Animal animal)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 _unitOfWork.animal.Update(animal);
                 _unitOfWork.Save();
@@ -70,14 +71,14 @@ namespace PetAdoptionMVC.Controllers
 
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0) 
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
             Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
 
-            if (animalFromDb == null) 
+            if (animalFromDb == null)
             {
                 return NotFound();
             }
@@ -86,11 +87,11 @@ namespace PetAdoptionMVC.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
             Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
 
-            if(animalFromDb == null) 
+            if (animalFromDb == null)
             {
                 return NotFound();
             }

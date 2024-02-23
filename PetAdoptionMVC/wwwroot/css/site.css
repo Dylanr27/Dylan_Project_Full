@@ -33,9 +33,51 @@ td, th {
     text-align: center;
 }
 
-    /**/
-    a.navbar-brand
+.bg-primary .dropdown-menu {
+    color: #ddeeee;
+    background-color: #347474;
+    opacity: 0;
+    transition: opacity 350ms ease-in;
+}
+
+.dropdown-menu.show {
+    display: block;
+    animation: fade-in 500ms forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.bg-primary .dropdown-menu .dropdown-item.active, 
+.bg-primary .dropdown-menu .dropdown-item:hover, 
+.bg-primary .dropdown-menu .dropdown-item:focus 
 {
+    background-color: #5c9797;
+}
+
+.nav-link {
+    color: #ddeeee;
+}
+
+/**/
+a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
@@ -181,6 +223,7 @@ bg-success
     color: #fff;
     background-color: #347474;
     border-color: #347474;
+
 }
 
 
@@ -409,10 +452,8 @@ bg-success
 .btn-danger:focus
 {
     color: #fff;
-    background-color: #d9534f;
-    ;
-    border-color: #d9534f;
-    ;
+    background-color: #d9534f;    
+    border-color: #d9534f;  
     box-shadow: 0 0 0 0.25rem rgba(223, 109, 105, 0.5);
 }
 
@@ -517,7 +558,6 @@ bg-success
 
 
 
-
 .btn-warning
 {
     color: #fff;
@@ -578,8 +618,6 @@ bg-success
     background-color: #c6883a;
     border-color: #c6883a;
 }
-
-
 
 
 
