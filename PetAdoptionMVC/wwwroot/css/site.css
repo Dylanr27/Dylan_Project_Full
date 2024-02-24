@@ -15,13 +15,13 @@ body {
 }
 
 .rounded-left {
-    border-top-left-radius: 0.75rem; /* Adjust as needed */
-    border-bottom-left-radius: 0.75rem; /* Adjust as needed */
+    border-top-left-radius: 0.75rem; 
+    border-bottom-left-radius: 0.75rem; 
 }
 
 .rounded-right {
-    border-top-right-radius: 0.75rem; /* Adjust as needed */
-    border-bottom-right-radius: 0.75rem; /* Adjust as needed */
+    border-top-right-radius: 0.75rem; /
+    border-bottom-right-radius: 0.75rem; 
 }
 
 .border-easy {
@@ -33,42 +33,30 @@ td, th {
     text-align: center;
 }
 
-.bg-primary .dropdown-menu {
-    color: #ddeeee;
-    background-color: #347474;
+
+.dropdown-menu {
+    box-shadow: -1px 3px 5px 0 rgba(0,0,0,.2);
+    border-radius: .25rem;
     opacity: 0;
-    transition: opacity 350ms ease-in;
+    transform: translateY(-15px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    pointer-events: none;
 }
 
 .dropdown-menu.show {
-    display: block;
-    animation: fade-in 500ms forwards;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-
+.bg-primary .dropdown-menu {
+    color: #ddeeee;
+    background-color: #347474;
 }
 
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.bg-primary .dropdown-menu .dropdown-item.active, 
-.bg-primary .dropdown-menu .dropdown-item:hover, 
-.bg-primary .dropdown-menu .dropdown-item:focus 
-{
+.bg-primary .dropdown-menu .dropdown-item.active,
+.bg-primary .dropdown-menu .dropdown-item:hover,
+.bg-primary .dropdown-menu .dropdown-item:focus {
     background-color: #5c9797;
 }
 
@@ -76,12 +64,27 @@ td, th {
     color: #ddeeee;
 }
 
-/**/
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+.nav-link-border-underline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 100ms ease-in-out;
 }
+
+.nav-link-border-underline:hover::before {
+    transform: scaleX(1);
+}
+    /*****************************/
+    a.navbar-brand {
+        white-space: normal;
+        text-align: center;
+        word-break: break-all;
+    }
 
 
 

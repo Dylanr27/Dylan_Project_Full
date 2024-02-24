@@ -3842,7 +3842,6 @@ textarea.form-control-lg {
     --bs-dropdown-header-padding-y: 0.5rem;
     position: absolute;
     z-index: var(--bs-dropdown-zindex);
-    display: none;
     min-width: var(--bs-dropdown-min-width);
     padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
     margin: 0;
