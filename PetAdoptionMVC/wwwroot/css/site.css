@@ -20,7 +20,7 @@ body {
 }
 
 .rounded-right {
-    border-top-right-radius: 0.75rem; /
+    border-top-right-radius: 0.75rem; 
     border-bottom-right-radius: 0.75rem; 
 }
 
@@ -39,7 +39,7 @@ td, th {
     border-radius: .25rem;
     opacity: 0;
     transform: translateY(-15px);
-    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     pointer-events: none;
 }
 
@@ -64,6 +64,10 @@ td, th {
     color: #ddeeee;
 }
 
+.nav-link-border-underline {
+    position: relative;
+}
+
 .nav-link-border-underline::before {
     content: '';
     position: absolute;
@@ -73,7 +77,7 @@ td, th {
     height: 2px;
     background-color: white;
     transform: scaleX(0);
-    transition: transform 100ms ease-in-out;
+    transition: transform 150ms ease-in-out;
 }
 
 .nav-link-border-underline:hover::before {
