@@ -39,7 +39,7 @@ td, th {
     border-radius: .25rem;
     opacity: 0;
     transform: translateY(-15px);
-    transition: opacity 150ms ease-in-out, transform 15 0ms ease-in-out;
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
     pointer-events: none;
 }
 
