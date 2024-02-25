@@ -915,6 +915,9 @@
         }
       },
       "PetAdoption.Models/1.0.0": {
+        "dependencies": {
+          "PetAdoption.Utility": "1.0.0"
+        },
         "runtime": {
           "PetAdoption.Models.dll": {}
         }

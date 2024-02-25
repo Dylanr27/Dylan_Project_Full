@@ -12,10 +12,13 @@ namespace PetAdoption.DataAccess.Repository
     {
         private ApplicationDbContext _db;
         public IAnimalRepository animal { get; private set; }
+
+        public IProductRepository product { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             animal = new AnimalRepository(_db);
+            product = new ProductRepository(_db);
         }
 
         public void Save()

@@ -115,7 +115,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
+                "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

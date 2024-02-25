@@ -74,6 +74,76 @@ namespace PetAdoptionMVC.DataAccess.Migrations
                             Species = "Cat"
                         });
                 });
+
+            modelBuilder.Entity("PetAdoption.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AvailableQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AvailableQuantity = 50,
+                            Brand = "Wild Coast",
+                            Description = "Raw pork cat food. Freeze until ready to use. Good refrigerated for 3 days after inital thaw.",
+                            PhotoUrl = "/lib/Images/wild-coast-raw-pork.png",
+                            Type = "Cat Food"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AvailableQuantity = 65,
+                            Brand = "Wild Coast",
+                            Description = "Raw chicken cat food. Freeze until ready to use. Good refrigerated for 3 days after inital thaw.",
+                            PhotoUrl = "/lib/Images/wild-coast-raw-chicken.jpg",
+                            Type = "Cat Food"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AvailableQuantity = 45,
+                            Brand = "Wild Coast",
+                            Description = "Raw beef cat food. Freeze until ready to use. Good refrigerated for 3 days after inital thaw.",
+                            PhotoUrl = "/lib/Images/wild-coast-raw-beef.jpg",
+                            Type = "Cat Food"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AvailableQuantity = 30,
+                            Brand = "Wild Coast",
+                            Description = "Raw turkey cat food. Freeze until ready to use. Good refrigerated for 3 days after inital thaw.",
+                            PhotoUrl = "/lib/Images/wild-coast-raw-turkey.jpg",
+                            Type = "Cat Food"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }

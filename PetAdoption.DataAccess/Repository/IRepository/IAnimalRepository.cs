@@ -1,9 +1,4 @@
 ﻿using PetAdoption.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PetAdoption.DataAccess.Repository.IRepository
 {

@@ -9,6 +9,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
     public class AnimalController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+
         public AnimalController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -34,7 +35,15 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
                 return RedirectToAction("Index");
             }
-            TempData["error"] = "Error adding animal";
+
+            var errors = ModelState.Values.SelectMany(x => x.Errors);
+
+            foreach (var error in errors)
+            {
+                TempData["error"] = error.ErrorMessage;
+                break;
+            }
+
             return View();
 
         }
@@ -65,7 +74,15 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                 TempData["success"] = "Animal updated successfully";
                 return RedirectToAction("Index");
             }
-            TempData["error"] = "Error adding animal";
+
+            var errors = ModelState.Values.SelectMany(x => x.Errors);
+
+            foreach (var error in errors)
+            {
+                TempData["error"] = error.ErrorMessage;
+                break;
+            }
+
             return View();
         }
 
@@ -98,7 +115,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
             _unitOfWork.animal.Remove(animalFromDb);
             _unitOfWork.Save();
-            TempData["success"] = "Category deleted successfully";
+            TempData["success"] = "Animal removed successfully";
             return RedirectToAction("Index");
         }
 

@@ -10,6 +10,8 @@ namespace PetAdoption.DataAccess.Repository.IRepository
     {
         IAnimalRepository animal { get; }
 
+        IProductRepository product { get; }
+
         void Save();
     }
 }
