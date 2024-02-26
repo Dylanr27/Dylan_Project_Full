@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,12 @@ namespace PetAdoption.Models
 
         public required decimal Price { get; set; }
 
-        public int? productId { get; set; }
+        public int? ProductId { get; set; }
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
 
-        public int? animalId { get; set; }
+        public int? AnimalId { get; set; }
+        [ForeignKey("AnimalId")]
+        public Animal Animal { get; set; }
     }
 }

@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetAdoption.DataAccess.Data;
 
 #nullable disable
 
-namespace PetAdoptionMVC.DataAccess.Migrations
+namespace PetAdoption.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240226052936_PascalCaseListingTable")]
+    partial class PascalCaseListingTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,10 +97,6 @@ namespace PetAdoptionMVC.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AnimalId");
-
-                    b.HasIndex("ProductId");
-
                     b.ToTable("Listing");
 
                     b.HasData(
@@ -177,21 +176,6 @@ namespace PetAdoptionMVC.DataAccess.Migrations
                             PhotoUrl = "/lib/Images/wild-coast-raw-turkey.jpg",
                             Type = "Cat Food"
                         });
-                });
-
-            modelBuilder.Entity("PetAdoption.Models.Listing", b =>
-                {
-                    b.HasOne("PetAdoption.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalId");
-
-                    b.HasOne("PetAdoption.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Animal");
-
-                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

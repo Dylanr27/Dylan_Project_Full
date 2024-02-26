@@ -1,0 +1,114 @@
+﻿@model List<Animal>
+
+<div class="card shadow border-0 pb-3 card-margin">
+
+    <div class="card-header bg-primary bg-gradient ml-0 py-3">
+
+        <div class="row">
+
+            <div class="col-8">
+
+                <h2 class="text-white px-4">Animals Looking for a Forever Home</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered border-easy">
+
+            <thead>
+
+                <tr>
+
+                    <th class="col-3">
+                        Name
+                    </th>
+
+                    <th class="col-1">
+                        Age
+                    </th>
+
+                    <th class="col-1">
+                        Species
+                    </th>
+
+                    <th class="col-2">
+                        Breed
+                    </th>
+
+                    <th class="col-1">
+                        Sex
+                    </th>
+
+                    <th class="col-3">
+                        Photo
+                    </th>
+                    <th>
+                        <i class="bi bi-pencil-square"></i>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var obj in Model.OrderBy(u => u.Species))
+                {
+
+                    <tr>
+
+                        <td>
+                            @obj.Name
+                        </td>
+
+                        <td>
+                            @obj.Age
+                        </td>
+
+                        <td>
+                            @obj.Species
+                        </td>
+
+                        <td>
+                            @obj.Breed
+                        </td>
+
+                        <td>
+                            @obj.Sex
+                        </td>
+
+                        <td>
+                            <img src="@obj.PhotoUrl"
+                                 width="80px"
+                                 height="120px"
+                                 class="rounded" />
+                        </td>
+
+                        <td>
+
+                            <div class="w-75 btn-group-md" role="group">
+
+                                <a asp-controller="Listing" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
+                                    <i class="bi bi-pencil-square"></i> Apply for adoption
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

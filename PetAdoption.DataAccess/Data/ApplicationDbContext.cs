@@ -82,8 +82,8 @@ namespace PetAdoption.DataAccess.Data
                 {
                     Id = 1,
                     Price = 100.00m,
-                    productId = null,
-                    animalId = 1,
+                    ProductId = null,
+                    AnimalId = 1,
                 });
             
         }
