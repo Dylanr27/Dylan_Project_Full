@@ -1489,7 +1489,10 @@
         },
         "runtime": {
           "bin/placeholder/PetAdoption.Models.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "PetAdoption.Utility/1.0.0": {
         "type": "project",

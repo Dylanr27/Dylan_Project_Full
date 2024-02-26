@@ -15,6 +15,7 @@ namespace PetAdoption.DataAccess.Data
 
         public DbSet<Animal> Animal {  get; set; }
         public DbSet<Product> Product {  get; set; }
+        public DbSet<Listing> Listing {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +75,15 @@ namespace PetAdoption.DataAccess.Data
                     Description = "Raw turkey cat food. Freeze until ready to use. Good refrigerated for 3 days after inital thaw.",
                     AvailableQuantity = 30,
                     PhotoUrl="/lib/Images/wild-coast-raw-turkey.jpg"
+                });
+
+            modelBuilder.Entity<Listing>().HasData(
+                new Listing
+                {
+                    Id = 1,
+                    Price = 100.00m,
+                    productId = null,
+                    animalId = 1,
                 });
             
         }

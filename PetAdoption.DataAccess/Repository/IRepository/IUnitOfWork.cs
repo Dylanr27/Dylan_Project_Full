@@ -9,8 +9,8 @@ namespace PetAdoption.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         IAnimalRepository animal { get; }
-
         IProductRepository product { get; }
+        IListingRepository listing { get; }
 
         void Save();
     }
