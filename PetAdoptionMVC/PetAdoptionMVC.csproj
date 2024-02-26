@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\lib\Images\paw-prints-svgrepo-com.svg" />
-    <None Include="wwwroot\lib\Images\pexels-monica-oprea-9718154.jpg" />
+    <None Include="wwwroot\Images\Animals\paw-prints-svgrepo-com.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +27,10 @@
     <ProjectReference Include="..\PetAdoption.DataAccess\PetAdoption.DataAccess.csproj" />
     <ProjectReference Include="..\PetAdoption.Models\PetAdoption.Models.csproj" />
     <ProjectReference Include="..\PetAdoption.Utility\PetAdoption.Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Products\" />
   </ItemGroup>
 
 </Project>

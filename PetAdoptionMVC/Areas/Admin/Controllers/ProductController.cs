@@ -9,9 +9,12 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public ProductController(IUnitOfWork unitOfWork) 
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment) 
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -38,6 +41,21 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid) 
             {
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                if (file != null) 
+                {
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string productPath = Path.Combine(wwwRootPath, @"Images\Products");
+
+                    using (var fileStream = new FileStream(
+                        Path.Combine(productPath, fileName), 
+                        FileMode.Create)) 
+                    {
+                        file.CopyTo(fileStream);
+                    }
+
+                    product.PhotoUrl = @"/Images/Products/" + fileName;
+                }
                 if (product.Id == 0)
                 {
                     _unitOfWork.product.Add(product);

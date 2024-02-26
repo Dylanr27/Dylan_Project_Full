@@ -20,8 +20,6 @@
 
         <form method="post" class="row" enctype="multipart/form-data">
 
-            <input asp-for="Id" hidden />
-
             <div class="border-0 px-4">
 
                 <div class="form-floating py-2 col-12">
@@ -59,7 +57,7 @@
 
                 <div class="form-floating py-2 col-12">
 
-                    <input type="file" class="form-control shadow" />
+                    <input type="file" name="file" class="form-control shadow" />
 
                     <label asp-for="PhotoUrl" class="ms-2"></label>
 

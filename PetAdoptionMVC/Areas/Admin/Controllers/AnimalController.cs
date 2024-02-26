@@ -2,6 +2,7 @@
 using PetAdoption.Models;
 using PetAdoption.DataAccess.Data;
 using PetAdoption.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PetAdoptionMVC.Areas.Admin.Controllers
 {
@@ -9,10 +10,13 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
     public class AnimalController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AnimalController(IUnitOfWork unitOfWork)
+        public AnimalController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -35,10 +39,25 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Upsert(Animal animal)
+        public IActionResult Upsert(Animal animal, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string animalPath = Path.Combine(wwwRootPath, @"Images\Animals");
+
+                    using (var fileStream = new FileStream(
+                        Path.Combine(animalPath, fileName),
+                        FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+
+                    animal.PhotoUrl = @"/Images/Animals/" + fileName;
+                }
                 if (animal.Id == 0)
                 {
                     _unitOfWork.animal.Add(animal);

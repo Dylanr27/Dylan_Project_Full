@@ -16,7 +16,7 @@ namespace PetAdoption.Models
 
         public required string Type { get; set; }
 
-        [EndsWith(".")]
+        //[EndsWith(".")]
         public required string Description { get; set; }
 
         [DisplayName("Available Quantity")]
