@@ -15,7 +15,7 @@
             <div class="col-4 text-end px-4">
 
                 <a asp-controller="Animal"
-                   asp-action="Create"
+                   asp-action="Upsert"
                    class="btn border btn-outline-secondary text-white">
                     <i class="bi bi-plus-circle"> Add Animal</i>
                 </a>
@@ -102,7 +102,7 @@
 
                             <div class="w-75 btn-group-md" role="group">
 
-                                <a asp-controller="Animal" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
+                                <a asp-controller="Animal" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </a>
 

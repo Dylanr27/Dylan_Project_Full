@@ -8,7 +8,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 class="text-white">Edit details of the animal</h2>
+                <h2 class="text-white">@(Model is null || Model.Id == 0 ? "Enter details for new animal" : "Update details of the animal")</h2>
 
             </div>
 
@@ -18,14 +18,14 @@
 
     <div class="card-body">
 
-        <form method="post" class="row">
+        <form method="post" class="row" enctype="multipart/form-data">
 
             <div class="border-0 px-4">
 
                 <div class="form-floating py-2 col-12">
 
                     <input asp-for="Name" class="form-control shadow" />
-
+                    
                     <label asp-for="Name" class="ms-2"></label>
 
 
@@ -44,6 +44,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <select asp-for="Species" class="form-control shadow">
+                        <option disabled>---Select Species---</option>
                         <option value="Cat">Cat</option>
                         <option value="Dog">Dog</option>
                     </select>
@@ -55,7 +56,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <input asp-for="Breed" class="form-control shadow" />
-
+                    
                     <label asp-for="Breed" class="ms-2"></label>
 
                 </div>
@@ -63,6 +64,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <select asp-for="Sex" class="form-control shadow">
+                        <option disabled>---Select a Sex---</option>
                         <option value=""></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -75,6 +77,7 @@
                 <div class="form-floating py-2 col-12">
 
                     <select asp-for="Size" class="form-control shadow">
+                        <option disabled>---Select a Size---</option>
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
                         <option value="Large">Large</option>
@@ -86,31 +89,38 @@
 
                 <div class="form-floating py-2 col-12">
 
-                    <input asp-for="Description" class="form-control shadow" />
+                    <input type="file" class="form-control shadow" />
 
-                    <label asp-for="Description" class="ms-2"></label>
+                    <label asp-for="PhotoUrl" class="ms-2"></label>
 
                 </div>
 
-                <div class="form-floating py-2 col-12">
+                <div class="py-2 col-12 shadow">
 
-                    <input asp-for="PhotoUrl" class="form-control shadow" />
+                    <label asp-for="Description" class="mx-2 text-muted"></label>
 
-                    <label asp-for="PhotoUrl" class="ms-2"></label>
+                    <textarea asp-for="Description" class="form-control shadow"></textarea>
 
                 </div>
 
                 <div class="row pt-3">
 
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary rounded-left form-control">Finish Editing</button>
+                        @if (Model is null || Model.Id == 0)
+                        {
+                            <button type="submit" class="btn btn-primary rounded-left form-control">Add Animal</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                        }
                     </div>
 
                     <div class="col-6">
 
                         <a asp-controller="Animal"
-                           asp-action="Index"
-                           class="btn btn-warning form-control rounded-right">
+                            asp-action="Index"
+                            class="btn btn-warning form-control rounded-right">
                             Back to List
                         </a>
 
@@ -125,3 +135,22 @@
     </div>
 
 </div>
+
+@section Scripts
+{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
+}
+

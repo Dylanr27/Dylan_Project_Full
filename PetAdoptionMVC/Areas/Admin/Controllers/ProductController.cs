@@ -20,19 +20,37 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             return View(objProductList);
         }
 
-        public IActionResult Create() 
+        public IActionResult Upsert(int? id) 
         {
-            return View();
+            if (id == null || id == 0)
+            {
+                return View();
+            }
+            else 
+            {
+                Product objProduct = _unitOfWork.product.Get(u=> u.Id ==id);
+                return View(objProduct);
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Product product) 
+        public IActionResult Upsert(Product product, IFormFile? file) 
         {
             if (ModelState.IsValid) 
             {
-                _unitOfWork.product.Add(product);
-                _unitOfWork.Save();
-                TempData["success"] = "Product added successfully";
+                if (product.Id == 0)
+                {
+                    _unitOfWork.product.Add(product);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Product added successfully";
+                }
+                else
+
+                {
+                    _unitOfWork.product.Update(product);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Product updated successfully";
+                }
 
                 return RedirectToAction("Index");
             }
@@ -40,44 +58,6 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             var errors = ModelState.Values.SelectMany(x => x.Errors);
 
             foreach (var error in errors) 
-            {
-                TempData["error"] = error.ErrorMessage;
-                break;
-            }
-
-            return View();
-        }
-
-        public IActionResult Edit(int? id) 
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
-
-            if (productFromDb == null)
-            {
-                return NotFound();
-            }
-
-            return View(productFromDb);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product product) 
-        {
-            if (ModelState.IsValid) 
-            {
-                _unitOfWork.product.Update(product);
-                _unitOfWork.Save();
-                TempData["success"] = "Product updated successfully";
-                return RedirectToAction("Index");
-            }
-
-            var errors = ModelState.Values.SelectMany(x => x.Errors);
-
-            foreach (var error in errors)
             {
                 TempData["error"] = error.ErrorMessage;
                 break;

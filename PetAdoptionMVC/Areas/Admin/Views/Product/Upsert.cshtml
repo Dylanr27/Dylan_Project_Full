@@ -1,0 +1,126 @@
+﻿@model Product
+
+<div class="card shadow border-0 pb-3 card-margin">
+
+    <div class="card-header bg-primary bg-gradient ml-0 py-3">
+
+        <div class="row">
+
+            <div class="col-12 text-center">
+
+                <h2 class="text-white">@(Model is null || Model.Id == 0 ? "Enter details for new product" : "Update details of the product")</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" class="row" enctype="multipart/form-data">
+
+            <input asp-for="Id" hidden />
+
+            <div class="border-0 px-4">
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="Brand" class="form-control shadow" />
+
+                    <label asp-for="Brand" class="ms-2"></label>
+
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <select asp-for="Type" class="form-control shadow">
+                        <option disabled>---Select a Type---</option>
+                        <option value="Cat-Food">Cat Food</option>
+                        <option value="Dog-Food">Dog Food</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Misc">Misc</option>
+                    </select>
+
+                    <label asp-for="Type" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input asp-for="AvailableQuantity" class="form-control shadow" />
+
+                    <label asp-for="AvailableQuantity" class="ms-2"></label>
+
+                </div>
+
+                <div class="form-floating py-2 col-12">
+
+                    <input type="file" class="form-control shadow" />
+
+                    <label asp-for="PhotoUrl" class="ms-2"></label>
+
+                </div>
+
+
+                <div class="py-2 col-12 shadow">
+
+                    <label asp-for="Description" class="mx-2 text-muted"></label>
+
+                    <textarea asp-for="Description" class="form-control shadow"></textarea>
+
+                </div>
+
+                <div class="row pt-3">
+
+                    <div class="col-6">
+                        @if (Model is null || Model.Id == 0)
+                        {
+                            <button type="submit" class="btn btn-primary rounded-left form-control">Add Product</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                        }
+                    </div>
+
+                    <div class="col-6">
+
+                        <a asp-controller="Product"
+                           asp-action="Index"
+                           class="btn btn-warning form-control rounded-right">
+                            Back to List
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
+}

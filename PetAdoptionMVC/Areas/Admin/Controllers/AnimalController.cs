@@ -14,64 +14,45 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+
         public IActionResult Index()
         {
             List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
             return View(objAnimalList);
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public IActionResult Create(Animal animal)
-        {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.animal.Add(animal);
-                _unitOfWork.Save();
-                TempData["success"] = "Animal added successfully";
-
-                return RedirectToAction("Index");
-            }
-
-            var errors = ModelState.Values.SelectMany(x => x.Errors);
-
-            foreach (var error in errors)
-            {
-                TempData["error"] = error.ErrorMessage;
-                break;
-            }
-
-            return View();
-
-        }
-
-        public IActionResult Edit(int? id)
+        public IActionResult Upsert(int? id)
         {
             if (id == null || id == 0)
             {
-                return NotFound();
+                return View();
             }
-            Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
-
-            if (animalFromDb == null)
+            else
             {
-                return NotFound();
+                Animal objAnimal = _unitOfWork.animal.Get(u => u.Id == id);
+                return View(objAnimal);
             }
-
-            return View(animalFromDb);
         }
 
         [HttpPost]
-        public IActionResult Edit(Animal animal)
+        public IActionResult Upsert(Animal animal)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.animal.Update(animal);
-                _unitOfWork.Save();
-                TempData["success"] = "Animal updated successfully";
+                if (animal.Id == 0)
+                {
+                    _unitOfWork.animal.Add(animal);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Animal added successfully";
+                }
+                else
+
+                {
+                    _unitOfWork.animal.Update(animal);
+                    _unitOfWork.Save();
+                    TempData["success"] = "Animal updated successfully";
+                }
+
                 return RedirectToAction("Index");
             }
 
@@ -84,6 +65,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             }
 
             return View();
+
         }
 
         public IActionResult Delete(int? id)
