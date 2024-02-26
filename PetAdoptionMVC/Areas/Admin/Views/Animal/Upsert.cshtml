@@ -8,7 +8,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 class="text-white">@(Model is null || Model.Id == 0 ? "Enter details for new animal" : "Update details of the animal")</h2>
+                <h2 class="text-white">@(!Animal.modelProvided(Model) ? "Enter details for new animal" : "Update details of the animal")</h2>
 
             </div>
 
@@ -19,116 +19,129 @@
     <div class="card-body">
 
         <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="PhotoUrl" hidden />
+            <div class="row">
+                <div class="col-10">
+                    <div class="border-0 px-4">
 
-            <div class="border-0 px-4">
+                        <div class="form-floating py-2 col-12">
 
-                <div class="form-floating py-2 col-12">
+                            <input asp-for="Name" class="form-control shadow" />
 
-                    <input asp-for="Name" class="form-control shadow" />
-                    
-                    <label asp-for="Name" class="ms-2"></label>
+                            <label asp-for="Name" class="ms-2"></label>
 
 
-                </div>
+                        </div>
 
-                <div class="form-floating py-2 col-12">
+                        <div class="form-floating py-2 col-12">
 
-                    <input asp-for="Age" class="form-control shadow" />
+                            <input asp-for="Age" class="form-control shadow" />
 
-                    <label asp-for="Age" class="ms-2"></label>
+                            <label asp-for="Age" class="ms-2"></label>
 
-                    <span asp-validation-for="Age" class="text-danger"></span>
+                            <span asp-validation-for="Age" class="text-danger"></span>
 
-                </div>
+                        </div>
 
-                <div class="form-floating py-2 col-12">
+                        <div class="form-floating py-2 col-12">
 
-                    <select asp-for="Species" class="form-control shadow">
-                        <option disabled>---Select Species---</option>
-                        <option value="Cat">Cat</option>
-                        <option value="Dog">Dog</option>
-                    </select>
+                            <select asp-for="Species" class="form-control shadow">
+                                <option disabled>---Select Species---</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Dog">Dog</option>
+                            </select>
 
-                    <label asp-for="Species" class="ms-2"></label>
+                            <label asp-for="Species" class="ms-2"></label>
 
-                </div>
+                        </div>
 
-                <div class="form-floating py-2 col-12">
+                        <div class="form-floating py-2 col-12">
 
-                    <input asp-for="Breed" class="form-control shadow" />
-                    
-                    <label asp-for="Breed" class="ms-2"></label>
+                            <input asp-for="Breed" class="form-control shadow" />
 
-                </div>
+                            <label asp-for="Breed" class="ms-2"></label>
 
-                <div class="form-floating py-2 col-12">
+                        </div>
 
-                    <select asp-for="Sex" class="form-control shadow">
-                        <option disabled>---Select a Sex---</option>
-                        <option value=""></option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
+                        <div class="form-floating py-2 col-12">
 
-                    <label asp-for="Sex" class="ms-2"></label>
+                            <select asp-for="Sex" class="form-control shadow">
+                                <option disabled>---Select a Sex---</option>
+                                <option value=""></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
 
-                </div>
+                            <label asp-for="Sex" class="ms-2"></label>
 
-                <div class="form-floating py-2 col-12">
+                        </div>
 
-                    <select asp-for="Size" class="form-control shadow">
-                        <option disabled>---Select a Size---</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                    </select>
+                        <div class="form-floating py-2 col-12">
 
-                    <label asp-for="Size" class="ms-2"></label>
+                            <select asp-for="Size" class="form-control shadow">
+                                <option disabled>---Select a Size---</option>
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                            </select>
 
-                </div>
+                            <label asp-for="Size" class="ms-2"></label>
 
-                <div class="form-floating py-2 col-12">
+                        </div>
 
-                    <input type="file" name="file" class="form-control shadow" />
+                        <div class="form-floating py-2 col-12">
 
-                    <label asp-for="PhotoUrl" class="ms-2"></label>
+                            <input type="file" name="file" class="form-control shadow" />
 
-                </div>
+                            <label asp-for="PhotoUrl" class="ms-2"></label>
 
-                <div class="py-2 col-12 shadow">
+                        </div>
 
-                    <label asp-for="Description" class="mx-2 text-muted"></label>
+                        <div class="py-2 col-12 shadow">
 
-                    <textarea asp-for="Description" class="form-control shadow"></textarea>
+                            <label asp-for="Description" class="mx-2 text-muted"></label>
 
-                </div>
+                            <textarea asp-for="Description" class="form-control shadow"></textarea>
 
-                <div class="row pt-3">
+                        </div>
 
-                    <div class="col-6">
-                        @if (Model is null || Model.Id == 0)
-                        {
-                            <button type="submit" class="btn btn-primary rounded-left form-control">Add Animal</button>
-                        }
-                        else
-                        {
-                            <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
-                        }
+                        <div class="row pt-3">
+
+                            <div class="col-6">
+                                @if (!Animal.modelProvided(Model))
+                                {
+                                    <button type="submit" class="btn btn-primary rounded-left form-control">Add Animal</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                                }
+                            </div>
+
+                            <div class="col-6">
+
+                                <a asp-controller="Animal"
+                                   asp-action="Index"
+                                   class="btn btn-warning form-control rounded-right">
+                                    Back to List
+                                </a>
+
+                            </div>
+
+                        </div>
+
                     </div>
-
-                    <div class="col-6">
-
-                        <a asp-controller="Animal"
-                            asp-action="Index"
-                            class="btn btn-warning form-control rounded-right">
-                            Back to List
-                        </a>
-
-                    </div>
-
                 </div>
-
+                <div class="col-2">
+                    @if (Animal.modelProvided(Model))
+                    {
+                        <img src="@Model.PhotoUrl" width="100%"
+                             style="border-radius:5px; border:1px solid #bbb9b9" />
+                    }
+                </div>
             </div>
+
+            
 
         </form>
 

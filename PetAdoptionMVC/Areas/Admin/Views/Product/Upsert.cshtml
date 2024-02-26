@@ -8,7 +8,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 class="text-white">@(Model is null || Model.Id == 0 ? "Enter details for new product" : "Update details of the product")</h2>
+                <h2 class="text-white">@(!Product.modelProvided(Model) ? "Enter details for new product" : "Update details of the product")</h2>
 
             </div>
 
@@ -19,85 +19,101 @@
     <div class="card-body">
 
         <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="PhotoUrl" hidden />
 
-            <div class="border-0 px-4">
+            <div class="row">
+                <div class="col-10">
+                    <div class="border-0 px-4">
 
-                <div class="form-floating py-2 col-12">
+                        <div class="form-floating py-2 col-12">
 
-                    <input asp-for="Brand" class="form-control shadow" />
+                            <input asp-for="Brand" class="form-control shadow" />
 
-                    <label asp-for="Brand" class="ms-2"></label>
+                            <label asp-for="Brand" class="ms-2"></label>
 
-                    <span asp-validation-for="Brand" class="text-danger"></span>
+                            <span asp-validation-for="Brand" class="text-danger"></span>
 
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+
+                            <select asp-for="Type" class="form-control shadow">
+                                <option disabled>---Select a Type---</option>
+                                <option value="Cat Food">Cat Food</option>
+                                <option value="Dog Food">Dog Food</option>
+                                <option value="Toys">Toys</option>
+                                <option value="Furniture">Furniture</option>
+                                <option value="Misc">Misc</option>
+                            </select>
+
+                            <label asp-for="Type" class="ms-2"></label>
+
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+
+                            <input asp-for="AvailableQuantity" class="form-control shadow" />
+
+                            <label asp-for="AvailableQuantity" class="ms-2"></label>
+
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+
+                            <input type="file" name="file" class="form-control shadow" />
+
+                            <label asp-for="PhotoUrl" class="ms-2"></label>
+
+                        </div>
+
+
+                        <div class="py-2 col-12 shadow">
+
+                            <label asp-for="Description" class="mx-2 text-muted"></label>
+
+                            <textarea asp-for="Description" class="form-control shadow"></textarea>
+
+                        </div>
+
+                        <div class="row pt-3">
+
+                            <div class="col-6">
+                                @if (!Product.modelProvided(Model))
+                                {
+                                    <button type="submit" class="btn btn-primary rounded-left form-control">Add Product</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                                }
+                            </div>
+
+                            <div class="col-6">
+
+                                <a asp-controller="Product"
+                                   asp-action="Index"
+                                   class="btn btn-warning form-control rounded-right">
+                                    Back to List
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-
-                <div class="form-floating py-2 col-12">
-
-                    <select asp-for="Type" class="form-control shadow">
-                        <option disabled>---Select a Type---</option>
-                        <option value="Cat-Food">Cat Food</option>
-                        <option value="Dog-Food">Dog Food</option>
-                        <option value="Toys">Toys</option>
-                        <option value="Furniture">Furniture</option>
-                        <option value="Misc">Misc</option>
-                    </select>
-
-                    <label asp-for="Type" class="ms-2"></label>
-
-                </div>
-
-                <div class="form-floating py-2 col-12">
-
-                    <input asp-for="AvailableQuantity" class="form-control shadow" />
-
-                    <label asp-for="AvailableQuantity" class="ms-2"></label>
-
-                </div>
-
-                <div class="form-floating py-2 col-12">
-
-                    <input type="file" name="file" class="form-control shadow" />
-
-                    <label asp-for="PhotoUrl" class="ms-2"></label>
-
-                </div>
-
-
-                <div class="py-2 col-12 shadow">
-
-                    <label asp-for="Description" class="mx-2 text-muted"></label>
-
-                    <textarea asp-for="Description" class="form-control shadow"></textarea>
-
-                </div>
-
-                <div class="row pt-3">
-
-                    <div class="col-6">
-                        @if (Model is null || Model.Id == 0)
+                <div class="col-2">
+                    <div class="col-2">
+                        @if (Product.modelProvided(Model))
                         {
-                            <button type="submit" class="btn btn-primary rounded-left form-control">Add Product</button>
-                        }
-                        else
-                        {
-                            <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                            <img src="@Model.PhotoUrl" width="100%"
+                                 style="border-radius:5px; border:1px solid #bbb9b9" />
                         }
                     </div>
-
-                    <div class="col-6">
-
-                        <a asp-controller="Product"
-                           asp-action="Index"
-                           class="btn btn-warning form-control rounded-right">
-                            Back to List
-                        </a>
-
-                    </div>
-
                 </div>
-
             </div>
+
+            
 
         </form>
 

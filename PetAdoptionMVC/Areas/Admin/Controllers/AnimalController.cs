@@ -49,6 +49,16 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     string animalPath = Path.Combine(wwwRootPath, @"Images\Animals");
 
+                    if (!string.IsNullOrEmpty(animal.PhotoUrl))
+                    {
+                        var oldPhotoPath = Path.Combine(wwwRootPath, animal.PhotoUrl.TrimStart('\\'));
+
+                        if (System.IO.File.Exists(oldPhotoPath))
+                        {
+                            System.IO.File.Delete(oldPhotoPath);
+                        }
+                    }
+
                     using (var fileStream = new FileStream(
                         Path.Combine(animalPath, fileName),
                         FileMode.Create))

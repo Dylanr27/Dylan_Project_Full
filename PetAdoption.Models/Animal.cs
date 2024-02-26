@@ -25,5 +25,14 @@ namespace PetAdoption.Models
 
         [DisplayName("Photo Url")]
         public string? PhotoUrl { get; set; }
+
+        public static bool modelProvided(Animal animal)
+        {
+            if (animal is not null && animal.Id != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

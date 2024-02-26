@@ -11,7 +11,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment) 
+        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
             _webHostEnvironment = webHostEnvironment;
@@ -23,38 +23,48 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             return View(objProductList);
         }
 
-        public IActionResult Upsert(int? id) 
+        public IActionResult Upsert(int? id)
         {
             if (id == null || id == 0)
             {
                 return View();
             }
-            else 
+            else
             {
-                Product objProduct = _unitOfWork.product.Get(u=> u.Id ==id);
+                Product objProduct = _unitOfWork.product.Get(u => u.Id == id);
                 return View(objProduct);
             }
         }
 
         [HttpPost]
-        public IActionResult Upsert(Product product, IFormFile? file) 
+        public IActionResult Upsert(Product product, IFormFile? file)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 string wwwRootPath = _webHostEnvironment.WebRootPath;
-                if (file != null) 
+                if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     string productPath = Path.Combine(wwwRootPath, @"Images\Products");
 
+                    if (!string.IsNullOrEmpty(product.PhotoUrl)) 
+                    {
+                        var oldPhotoPath = Path.Combine(wwwRootPath, product.PhotoUrl.TrimStart('\\'));
+
+                        if (System.IO.File.Exists(oldPhotoPath)) 
+                        {
+                            System.IO.File.Delete(oldPhotoPath);
+                        }
+                    }
                     using (var fileStream = new FileStream(
-                        Path.Combine(productPath, fileName), 
-                        FileMode.Create)) 
+                        Path.Combine(productPath, fileName),
+                        FileMode.Create))
                     {
                         file.CopyTo(fileStream);
                     }
 
                     product.PhotoUrl = @"/Images/Products/" + fileName;
+
                 }
                 if (product.Id == 0)
                 {
@@ -75,7 +85,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
             var errors = ModelState.Values.SelectMany(x => x.Errors);
 
-            foreach (var error in errors) 
+            foreach (var error in errors)
             {
                 TempData["error"] = error.ErrorMessage;
                 break;
@@ -84,16 +94,16 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Delete(int? id) 
+        public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0) 
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
             Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
 
-            if (productFromDb == null) 
+            if (productFromDb == null)
             {
                 return NotFound();
             }
@@ -102,11 +112,11 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
             Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
 
-            if (productFromDb == null) 
+            if (productFromDb == null)
             {
                 return NotFound();
             }
@@ -116,5 +126,6 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             TempData["success"] = "Product removed successfully";
             return RedirectToAction("Index");
         }
+
     }
 }

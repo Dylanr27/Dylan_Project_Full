@@ -24,5 +24,14 @@ namespace PetAdoption.Models
         public required int AvailableQuantity { get; set; }
 
         public string? PhotoUrl { get; set; }
+
+        public static bool modelProvided(Product product)
+        {
+            if (product is not null && product.Id != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
