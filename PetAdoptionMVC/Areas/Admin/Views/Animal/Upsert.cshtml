@@ -19,9 +19,13 @@
     <div class="card-body">
 
         <form method="post" class="row" enctype="multipart/form-data">
+
             <input asp-for="PhotoUrl" hidden />
+
             <div class="row">
+
                 <div class="col-10">
+
                     <div class="border-0 px-4">
 
                         <div class="form-floating py-2 col-12">
@@ -108,6 +112,7 @@
                         <div class="row pt-3">
 
                             <div class="col-6">
+
                                 @if (!Animal.modelProvided(Model))
                                 {
                                     <button type="submit" class="btn btn-primary rounded-left form-control">Add Animal</button>
@@ -116,6 +121,7 @@
                                 {
                                     <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
                                 }
+
                             </div>
 
                             <div class="col-6">
@@ -131,17 +137,20 @@
                         </div>
 
                     </div>
+
                 </div>
+
                 <div class="col-2">
+
                     @if (Animal.modelProvided(Model))
                     {
                         <img src="@Model.PhotoUrl" width="100%"
                              style="border-radius:5px; border:1px solid #bbb9b9" />
                     }
-                </div>
-            </div>
 
-            
+                </div>
+
+            </div>   
 
         </form>
 

@@ -60,3 +60,7 @@ C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\D
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Utility.pdb
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.csproj.AssemblyReference.cache
 C:\Users\djreg\OneDrive\Documents\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.csproj.CopyComplete
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Utility.dll
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\bin\Debug\net8.0\PetAdoption.Utility.pdb
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.csproj.AssemblyReference.cache
+C:\Renton-Technical-College\Winter-2024\CSI-340\Dylan_Project_Full\PetAdoption.Models\obj\Debug\net8.0\PetAdoption.Models.csproj.CopyComplete

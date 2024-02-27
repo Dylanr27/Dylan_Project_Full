@@ -14,12 +14,14 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+
             _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
         {
             List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
+
             return View(objProductList);
         }
 
@@ -32,6 +34,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             else
             {
                 Product objProduct = _unitOfWork.product.Get(u => u.Id == id);
+
                 return View(objProduct);
             }
         }
@@ -42,14 +45,16 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _webHostEnvironment.WebRootPath;
+
                 if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
                     string productPath = Path.Combine(wwwRootPath, @"Images\Products");
 
                     if (!string.IsNullOrEmpty(product.PhotoUrl)) 
                     {
-                        var oldPhotoPath = Path.Combine(wwwRootPath, product.PhotoUrl.TrimStart('\\'));
+                        var oldPhotoPath = Path.Combine(wwwRootPath, product.PhotoUrl.TrimStart('/'));
 
                         if (System.IO.File.Exists(oldPhotoPath)) 
                         {
@@ -69,14 +74,18 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                 if (product.Id == 0)
                 {
                     _unitOfWork.product.Add(product);
+
                     _unitOfWork.Save();
+
                     TempData["success"] = "Product added successfully";
                 }
                 else
 
                 {
                     _unitOfWork.product.Update(product);
+
                     _unitOfWork.Save();
+
                     TempData["success"] = "Product updated successfully";
                 }
 
@@ -88,6 +97,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             foreach (var error in errors)
             {
                 TempData["error"] = error.ErrorMessage;
+
                 break;
             }
 
@@ -122,8 +132,11 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             }
 
             _unitOfWork.product.Remove(productFromDb);
+
             _unitOfWork.Save();
+
             TempData["success"] = "Product removed successfully";
+
             return RedirectToAction("Index");
         }
 

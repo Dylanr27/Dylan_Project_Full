@@ -17,6 +17,7 @@
     </div>
 
     <div class="card-body">
+
         <table class="table table-bordered border-easy">
 
             <thead>
@@ -44,7 +45,7 @@
                     </th>
 
                     <th>
-                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-plus-circle"></i>
                     </th>
 
                 </tr>
@@ -67,7 +68,7 @@
                         </td>
 
                         <td>
-                            @obj.Description.Substring(0, obj.Description.IndexOf("."))
+                            @obj.Description.Substring(3, obj.Description.IndexOf(".") -3)
                         </td>
 
                         <td>
@@ -86,7 +87,7 @@
                             <div class="w-75 btn-group-md" role="group">
 
                                 <a asp-controller="Product" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
-                                    <i class="bi bi-pencil-square"></i> Add to cart
+                                    <i class="bi bi-plus-circle mx-2"></i>Add to cart
                                 </a>
 
                             </div>

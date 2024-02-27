@@ -16,12 +16,14 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         public AnimalController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+
             _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
         {
             List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
+
             return View(objAnimalList);
         }
 
@@ -34,6 +36,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             else
             {
                 Animal objAnimal = _unitOfWork.animal.Get(u => u.Id == id);
+
                 return View(objAnimal);
             }
         }
@@ -44,9 +47,11 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _webHostEnvironment.WebRootPath;
+
                 if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
                     string animalPath = Path.Combine(wwwRootPath, @"Images\Animals");
 
                     if (!string.IsNullOrEmpty(animal.PhotoUrl))
@@ -71,14 +76,17 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                 if (animal.Id == 0)
                 {
                     _unitOfWork.animal.Add(animal);
+
                     _unitOfWork.Save();
+
                     TempData["success"] = "Animal added successfully";
                 }
                 else
-
                 {
                     _unitOfWork.animal.Update(animal);
+
                     _unitOfWork.Save();
+
                     TempData["success"] = "Animal updated successfully";
                 }
 
@@ -125,8 +133,11 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             }
 
             _unitOfWork.animal.Remove(animalFromDb);
+
             _unitOfWork.Save();
+
             TempData["success"] = "Animal removed successfully";
+
             return RedirectToAction("Index");
         }
 

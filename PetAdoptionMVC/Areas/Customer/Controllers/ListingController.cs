@@ -18,12 +18,14 @@ namespace PetAdoptionMVC.Areas.Customer.Controllers
         public IActionResult ProductListings()
         {
             List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
+
             return View(objProductList);
         }
 
         public IActionResult AnimalListings() 
         {
             List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
+
             return View(objAnimalList);
         }
     }
