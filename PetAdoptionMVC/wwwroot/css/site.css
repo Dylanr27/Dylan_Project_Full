@@ -1,14 +1,32 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
 body {
-    background-color: #e0e0e0
+    background-color: #e0e0e0;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.3px;
 }
 
 .edit-btn {
     padding-left: 1.1035rem;
     padding-right: 1.1035rem;
 }
+
+.card{
+    border-radius: 0.75rem 0.75rem;
+}
+
+.card-header:first-child {
+    border-radius: 0.75rem 0.75rem 0rem 0rem;
+    box-shadow: 0rem .02rem .15rem;
+    font-weight:bold;
+}
+
+.crisp-text {
+    text-shadow:rgba(0,0,0,0.4) -.015rem .015rem 0.15rem;
+}
+
 .card-margin {
     margin-top: 2rem;
     margin-bottom: 4rem;
@@ -83,6 +101,18 @@ td, th {
 
 .nav-link-border-underline:hover::before {
     transform: scaleX(1);
+}
+
+.animal-listing-img {
+    border:1px solid #bbb9b9; 
+    border-radius:0.5rem; 
+    box-shadow:rgba(0,0,0,0.3) -1px 1px 5px;
+    min-width: 30%;
+    max-width: 100%;
+}
+
+.tinymce-label {
+    margin-left: 1rem;
 }
 
 /*****************************/

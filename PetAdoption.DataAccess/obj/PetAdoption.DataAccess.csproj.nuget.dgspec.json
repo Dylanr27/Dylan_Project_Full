@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj": {}
+    "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj": {
+    "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
         "projectName": "PetAdoption.DataAccess",
-        "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
+        "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
         "packagesPath": "C:\\Users\\djreg\\.nuget\\packages\\",
-        "outputPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\djreg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj": {
-                "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj"
+              "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj": {
+                "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj"
               },
-              "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
-                "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj"
+              "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
+                "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj"
               }
             }
           }
@@ -78,21 +83,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj": {
+    "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj",
+        "projectUniqueName": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj",
         "projectName": "PetAdoption.Models",
-        "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj",
+        "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\PetAdoption.Models.csproj",
         "packagesPath": "C:\\Users\\djreg\\.nuget\\packages\\",
-        "outputPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\obj\\",
+        "outputPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\djreg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,14 +109,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
-                "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj"
+              "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
+                "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj"
               }
             }
           }
@@ -140,21 +150,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
+    "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj",
         "projectName": "PetAdoption.Utility",
-        "projectPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj",
+        "projectPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\PetAdoption.Utility.csproj",
         "packagesPath": "C:\\Users\\djreg\\.nuget\\packages\\",
-        "outputPath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\obj\\",
+        "outputPath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.Utility\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\djreg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,6 +176,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -195,7 +210,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

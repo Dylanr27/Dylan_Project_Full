@@ -8,7 +8,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 class="text-white">@(!Animal.modelProvided(Model) ? "Enter details for new animal" : "Update details of the animal")</h2>
+                <h2 class="text-white crisp-text">@(!Animal.modelProvided(Model) ? "Enter details for new animal" : "Update details of the animal")</h2>
 
             </div>
 
@@ -103,7 +103,7 @@
 
                         <div class="py-2 col-12 shadow">
 
-                            <label asp-for="Description" class="mx-2 text-muted"></label>
+                            <label asp-for="Description" class="tinymce-label text-muted"></label>
 
                             <textarea asp-for="Description" class="form-control shadow"></textarea>
 
@@ -115,11 +115,11 @@
 
                                 @if (!Animal.modelProvided(Model))
                                 {
-                                    <button type="submit" class="btn btn-primary rounded-left form-control">Add Animal</button>
+                                    <button type="submit" class="btn btn-primary rounded-left form-control crisp-text">Add Animal</button>
                                 }
                                 else
                                 {
-                                    <button type="submit" class="btn btn-primary rounded-left form-control">Finish editing</button>
+                                    <button type="submit" class="btn btn-primary rounded-left form-control crisp-text">Finish editing</button>
                                 }
 
                             </div>
@@ -128,7 +128,7 @@
 
                                 <a asp-controller="Animal"
                                    asp-action="Index"
-                                   class="btn btn-warning form-control rounded-right">
+                                   class="btn btn-warning form-control rounded-right crisp-text">
                                     Back to List
                                 </a>
 
@@ -144,8 +144,7 @@
 
                     @if (Animal.modelProvided(Model))
                     {
-                        <img src="@Model.PhotoUrl"
-                             style="border-radius:5px; border:1px solid #bbb9b9; width: 100%"  />
+                        <img src="@Model.PhotoUrl" class="animal-listing-img"/>
                     }
 
                 </div>

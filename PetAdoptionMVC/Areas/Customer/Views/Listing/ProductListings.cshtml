@@ -68,7 +68,7 @@
                         </td>
 
                         <td>
-                            @obj.Product.Description.Substring(0, obj.Product.Description.IndexOf("."))
+                            @obj.Product.Description.Substring(3, obj.Product.Description.IndexOf(".") -3)
                         </td>
 
                         <td>
@@ -86,8 +86,8 @@
 
                             <div class="w-75 btn-group-md" role="group">
 
-                                <a asp-controller="Listing" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
-                                    <i class="bi bi-plus-circle mx-2"></i>Add to cart
+                                <a asp-controller="Listing" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn crisp-text">
+                                    <i class="bi bi-plus-circle mx-2 crisp-text"></i>Add to cart
                                 </a>
 
                             </div>

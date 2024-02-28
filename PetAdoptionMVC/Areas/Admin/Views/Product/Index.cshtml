@@ -8,7 +8,7 @@
 
             <div class="col-8">
 
-                <h2 class="text-white px-4">Available Products</h2>
+                <h2 class="text-white mx-3 px-4 crisp-text">Available Products</h2>
 
             </div>
 
@@ -78,7 +78,7 @@
                         </td>
 
                         <td>
-                            @obj.Description
+                            @obj.Description.Substring(3,obj.Description.IndexOf('.') - 3)
                         </td>
 
                         <td>
@@ -87,8 +87,8 @@
 
                         <td>
                             <img src="@obj.PhotoUrl"
-                                 min-width="100%"
-                                 height="140px"
+                                 width="100"
+                                 height="140"
                                  class="rounded" />
                         </td>
 
@@ -96,12 +96,12 @@
 
                             <div class="w-75 btn-group-md" role="group">
 
-                                <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
-                                    <i class="bi bi-pencil-square"></i> Edit
+                                <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary edit-btn crisp-text">
+                                    <i class="bi bi-pencil-square crisp-text"></i> Edit
                                 </a>
 
-                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1">
-                                    <i class="bi bi-trash-fill"></i> Delete
+                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1 crisp-text">
+                                    <i class="bi bi-trash-fill crisp-text"></i> Delete
                                 </a>
 
                             </div>
