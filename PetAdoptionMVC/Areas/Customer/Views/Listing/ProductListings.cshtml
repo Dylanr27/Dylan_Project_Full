@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model List<Listing>
 
 <div class="card shadow border-0 pb-3 card-margin">
 
@@ -37,7 +37,7 @@
                     </th>
 
                     <th class="col-2">
-                        Quantity Available
+                        Price
                     </th>
 
                     <th class="col-3">
@@ -54,31 +54,31 @@
 
             <tbody>
 
-                @foreach (var obj in Model.OrderBy(u => u.Type))
+                @foreach (var obj in Model.OrderBy(u => u.Id))
                 {
 
                     <tr>
 
                         <td>
-                            @obj.Brand
+                            @obj.Product.Brand
                         </td>
 
                         <td>
-                            @obj.Type
+                            @obj.Product.Type
                         </td>
 
                         <td>
-                            @obj.Description.Substring(3, obj.Description.IndexOf(".") -3)
+                            @obj.Product.Description.Substring(3, obj.Product.Description.IndexOf(".") -3)
                         </td>
 
                         <td>
-                            @obj.AvailableQuantity Lbs
+                            $@obj.Price
                         </td>
 
                         <td>
-                            <img src="@obj.PhotoUrl"
-                                 width="80px"
-                                 height="120px"
+                            <img src="@obj.Product.PhotoUrl"
+                                 width="80"
+                                 height="120"
                                  class="rounded" />
                         </td>
 
@@ -86,7 +86,7 @@
 
                             <div class="w-75 btn-group-md" role="group">
 
-                                <a asp-controller="Product" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
+                                <a asp-controller="Listing" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn">
                                     <i class="bi bi-plus-circle mx-2"></i>Add to cart
                                 </a>
 

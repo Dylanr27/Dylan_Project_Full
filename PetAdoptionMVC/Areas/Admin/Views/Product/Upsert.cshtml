@@ -111,15 +111,11 @@
 
                 <div class="col-2">
 
-                    <div class="col-2">
-
                         @if (Product.modelProvided(Model))
                         {
-                            <img src="@Model.PhotoUrl" width="100%"
-                                 style="border-radius:5px; border:1px solid #bbb9b9" />
+                            <img src="@Model.PhotoUrl"
+                                 style="border-radius:5px; border:1px solid #bbb9b9; width: 100%" />
                         }
-
-                    </div>
 
                 </div>
 
@@ -145,6 +141,7 @@
                 { value: 'Email', title: 'Email' },
             ],
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            content_style: '.tox-tinymce { border: 0px; border-top: 2px; border-radius: 0px; }'
         });
     </script>
 }

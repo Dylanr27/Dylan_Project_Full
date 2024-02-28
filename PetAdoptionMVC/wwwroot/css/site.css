@@ -35,7 +35,6 @@ td, th {
     text-align: center;
 }
 
-
 .dropdown-menu {
     box-shadow: -1px 3px 5px 0 rgba(0,0,0,.2);
     border-radius: .25rem;
@@ -85,14 +84,14 @@ td, th {
 .nav-link-border-underline:hover::before {
     transform: scaleX(1);
 }
-    /*****************************/
-    a.navbar-brand {
-        white-space: normal;
-        text-align: center;
-        word-break: break-all;
-    }
 
+/*****************************/
 
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link

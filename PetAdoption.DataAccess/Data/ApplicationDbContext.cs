@@ -84,6 +84,15 @@ namespace PetAdoption.DataAccess.Data
                     ProductId = null,
                     AnimalId = 1,
                 });
+
+            modelBuilder.Entity<Listing>().HasData(
+                new Listing
+                {
+                    Id = 2,
+                    Price = 120.00m,
+                    ProductId = 1,
+                    AnimalId = null,
+                });
             
         }
     }
