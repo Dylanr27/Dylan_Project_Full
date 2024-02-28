@@ -126,6 +126,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
+            Listing? listingFromDb = _unitOfWork.listing.Get(u => u.AnimalId == id); 
 
             if (animalFromDb == null)
             {
@@ -133,6 +134,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             }
 
             _unitOfWork.animal.Remove(animalFromDb);
+            _unitOfWork.listing.Remove(listingFromDb);
 
             _unitOfWork.Save();
 

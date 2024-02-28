@@ -125,6 +125,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
+            Listing? listingFromDb = _unitOfWork.listing.Get(u => u.ProductId == id);
 
             if (productFromDb == null)
             {
@@ -132,6 +133,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             }
 
             _unitOfWork.product.Remove(productFromDb);
+            _unitOfWork.listing.Remove(listingFromDb);
 
             _unitOfWork.Save();
 
