@@ -28,7 +28,7 @@
 
     <div class="card-body">
 
-        <table class="table table-bordered border-easy">
+        <table id="tblData" class="table table-bordered border-easy" style="width: 100%">
 
             <thead>
 
@@ -53,7 +53,6 @@
                     <th class="col-3">
                         Photo
                     </th>
-
                     <th>
                         <i class="bi bi-pencil-square"></i> / <i class="bi bi-trash"></i>
                     </th>
@@ -62,60 +61,13 @@
 
             </thead>
 
-            <tbody>
-
-                @foreach (var obj in Model.OrderBy(u => u.Type))
-                {
-
-                    <tr>
-
-                        <td>
-                            @obj.Brand
-                        </td>
-
-                        <td>
-                            @obj.Type
-                        </td>
-
-                        <td>
-                            @obj.Description.Substring(3,obj.Description.IndexOf('.') - 3)
-                        </td>
-
-                        <td>
-                            @obj.AvailableQuantity Lbs
-                        </td>
-
-                        <td>
-                            <img src="@obj.PhotoUrl"
-                                 width="100"
-                                 height="140"
-                                 class="rounded" />
-                        </td>
-
-                        <td>
-
-                            <div class="w-75 btn-group-md" role="group">
-
-                                <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary edit-btn crisp-text">
-                                    <i class="bi bi-pencil-square crisp-text"></i> Edit
-                                </a>
-
-                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1 crisp-text">
-                                    <i class="bi bi-trash-fill crisp-text"></i> Delete
-                                </a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                }
-
-            </tbody>
-
         </table>
 
     </div>
 
 </div>
+
+@section Scripts
+{
+    <script src="~/js/product.js"></script>
+}

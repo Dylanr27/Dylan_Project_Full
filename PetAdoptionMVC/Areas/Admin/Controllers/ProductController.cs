@@ -104,43 +104,45 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Delete(int? id)
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll() 
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
-
-            if (productFromDb == null)
-            {
-                return NotFound();
-            }
-
-            return View(productFromDb);
+            List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
+            return Json(new {  data = objProductList });
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult Delete(int id)
+        [HttpDelete]
+        public IActionResult Delete(int? id) 
         {
-            Product? productFromDb = _unitOfWork.product.Get(u => u.Id == id);
+            Product? productToBeDeleted = _unitOfWork.product.Get(u =>u.Id == id);
             Listing? listingFromDb = _unitOfWork.listing.Get(u => u.ProductId == id);
 
-            if (productFromDb == null)
+            if (productToBeDeleted == null) 
             {
-                return NotFound();
+                return Json(new { success = false, message = "Error while deleting" }); 
             }
 
-            _unitOfWork.product.Remove(productFromDb);
+            var oldPhotoPath = Path.Combine(_webHostEnvironment.WebRootPath, productToBeDeleted.PhotoUrl.TrimStart('/'));
+
+            if (System.IO.File.Exists(oldPhotoPath))
+            {
+                System.IO.File.Delete(oldPhotoPath);
+            }
+
+            _unitOfWork.product.Remove(productToBeDeleted);
             _unitOfWork.listing.Remove(listingFromDb);
 
             _unitOfWork.Save();
 
-            TempData["success"] = "Product removed successfully";
-
-            return RedirectToAction("Index");
+            List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
+            return Json(new { data = objProductList });
         }
+
+        #endregion
 
     }
 }
+
+/*TempData["success"] = "Product removed successfully";*/

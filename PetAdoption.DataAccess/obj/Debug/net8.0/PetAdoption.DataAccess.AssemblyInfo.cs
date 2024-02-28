@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PetAdoption.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+045674b0963f6e9c2fecc958d35918dbcdb70cb7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f21f7cee8e864540f9258998cbe16a0fdaec914c")]
 [assembly: System.Reflection.AssemblyProductAttribute("PetAdoption.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PetAdoption.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

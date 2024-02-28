@@ -115,6 +115,33 @@ td, th {
     margin-left: 1rem;
 }
 
+/*DataTables styles*/
+
+table.dataTable th.dt-type-numeric, 
+table.dataTable th.dt-type-date, 
+table.dataTable td.dt-type-numeric, 
+table.dataTable td.dt-type-date {
+    text-align: center;
+}
+
+table.dataTable thead th, 
+table.dataTable thead td, 
+table.dataTable tfoot th, 
+table.dataTable tfoot td {
+    text-align: center;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc,
+table.dataTable thead > tr > th.dt-orderable-desc,
+table.dataTable thead > tr > th.dt-ordering-asc,
+table.dataTable thead > tr > th.dt-ordering-desc,
+table.dataTable thead > tr > td.dt-orderable-asc,
+table.dataTable thead > tr > td.dt-orderable-desc,
+table.dataTable thead > tr > td.dt-ordering-asc,
+table.dataTable thead > tr > td.dt-ordering-desc {
+    padding:10px;
+}
+
 /*****************************/
 
 a.navbar-brand {
