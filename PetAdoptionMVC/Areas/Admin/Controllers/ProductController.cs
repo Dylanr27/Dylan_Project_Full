@@ -145,9 +145,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
             _unitOfWork.Save();
 
-            List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
-
-            return Json(new { data = objProductList });
+            return Json(new { success = true, message = "Product removed successfully" });
         }
 
         #endregion
@@ -155,4 +153,3 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
     }
 }
 
-/*TempData["success"] = "Product removed successfully";*/

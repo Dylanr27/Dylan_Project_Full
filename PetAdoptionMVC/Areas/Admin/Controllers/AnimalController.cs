@@ -144,9 +144,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
             _unitOfWork.Save();
 
-            List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
-
-            return Json(new { data = objAnimalList });
+            return Json(new { success = true, message = "Animal removed successfully" });
         }
 
         #endregion
