@@ -105,43 +105,51 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
 
         }
 
-        public IActionResult Delete(int? id)
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
-
-            if (animalFromDb == null)
-            {
-                return NotFound();
-            }
-
-            return View(animalFromDb);
+            List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
+            return Json(new { data = objAnimalList });
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult Delete(int id)
+        [HttpDelete]
+        public IActionResult Delete(int? id)
         {
-            Animal? animalFromDb = _unitOfWork.animal.Get(u => u.Id == id);
-            Listing? listingFromDb = _unitOfWork.listing.Get(u => u.AnimalId == id); 
+            Animal? animalToBeDeleted = _unitOfWork.animal.Get(u => u.Id == id);
+            Listing? listingFromDb = _unitOfWork.listing.Get(u => u.AnimalId == id);
 
-            if (animalFromDb == null)
+            if (animalToBeDeleted is null)
             {
-                return NotFound();
+                return Json(new { success = false, message = "Error while deleting" });
             }
 
-            _unitOfWork.animal.Remove(animalFromDb);
-            _unitOfWork.listing.Remove(listingFromDb);
+            if (animalToBeDeleted.PhotoUrl is not null)
+            {
+                var oldPhotoPath = Path.Combine(_webHostEnvironment.WebRootPath, animalToBeDeleted.PhotoUrl.TrimStart('/'));
+
+                if (System.IO.File.Exists(oldPhotoPath))
+                {
+                    System.IO.File.Delete(oldPhotoPath);
+                }
+            }
+
+            _unitOfWork.animal.Remove(animalToBeDeleted);
+
+            if (listingFromDb is not null)
+            {
+                _unitOfWork.listing.Remove(listingFromDb);
+            };
 
             _unitOfWork.Save();
 
-            TempData["success"] = "Animal removed successfully";
+            List<Animal> objAnimalList = _unitOfWork.animal.GetAll().ToList();
 
-            return RedirectToAction("Index");
+            return Json(new { data = objAnimalList });
         }
+
+        #endregion
 
     }
 }

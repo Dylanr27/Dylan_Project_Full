@@ -61,6 +61,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                             System.IO.File.Delete(oldPhotoPath);
                         }
                     }
+
                     using (var fileStream = new FileStream(
                         Path.Combine(productPath, fileName),
                         FileMode.Create))
@@ -71,6 +72,7 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
                     product.PhotoUrl = @"/Images/Products/" + fileName;
 
                 }
+
                 if (product.Id == 0)
                 {
                     _unitOfWork.product.Add(product);
@@ -119,24 +121,32 @@ namespace PetAdoptionMVC.Areas.Admin.Controllers
             Product? productToBeDeleted = _unitOfWork.product.Get(u =>u.Id == id);
             Listing? listingFromDb = _unitOfWork.listing.Get(u => u.ProductId == id);
 
-            if (productToBeDeleted == null) 
+            if (productToBeDeleted is null) 
             {
                 return Json(new { success = false, message = "Error while deleting" }); 
             }
 
-            var oldPhotoPath = Path.Combine(_webHostEnvironment.WebRootPath, productToBeDeleted.PhotoUrl.TrimStart('/'));
-
-            if (System.IO.File.Exists(oldPhotoPath))
+            if (productToBeDeleted.PhotoUrl is not null) 
             {
-                System.IO.File.Delete(oldPhotoPath);
+                var oldPhotoPath = Path.Combine(_webHostEnvironment.WebRootPath, productToBeDeleted.PhotoUrl.TrimStart('/'));
+                
+                if (System.IO.File.Exists(oldPhotoPath))
+                {
+                    System.IO.File.Delete(oldPhotoPath);
+                }
             }
 
             _unitOfWork.product.Remove(productToBeDeleted);
-            _unitOfWork.listing.Remove(listingFromDb);
+
+            if(listingFromDb is not null) 
+            {
+                _unitOfWork.listing.Remove(listingFromDb);
+            };
 
             _unitOfWork.Save();
 
             List<Product> objProductList = _unitOfWork.product.GetAll().ToList();
+
             return Json(new { data = objProductList });
         }
 

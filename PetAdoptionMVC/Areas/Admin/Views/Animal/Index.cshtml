@@ -28,7 +28,7 @@
 
     <div class="card-body">
 
-            <table class="table table-bordered border-easy">
+        <table id="tblData" class="table table-bordered border-easy" style="width: 100%">
 
             <thead>
 
@@ -66,65 +66,13 @@
 
             </thead>
 
-            <tbody>
-
-                @foreach (var obj in Model.OrderBy(u => u.Species))
-                {
-
-                    <tr>
-
-                        <td>
-                            @obj.Name
-                        </td>
-
-                        <td>
-                            @obj.Age
-                        </td>
-
-                        <td>
-                            @obj.Species
-                        </td>
-
-                        <td>
-                            @obj.Breed
-                        </td>
-
-                        <td>
-                            @obj.Sex
-                        </td>
-
-                        <td>
-                            <img src="@obj.PhotoUrl"
-                                    width="100"
-                                    height="140"
-                                    class="animal-listing-img" />
-                        </td>
-
-                        <td>
-
-                            <div class="w-75 btn-group-md" role="group">
-
-                                <a asp-controller="Animal" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary edit-btn crisp-text">
-                                    <i class="bi bi-pencil-square crisp-text"></i> Edit
-                                </a>
-
-                                <a asp-controller="Animal" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1 crisp-text">
-                                    <i class="bi bi-trash-fill crisp-text"></i> Delete
-                                </a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                }
-
-            </tbody>
-
         </table>
 
     </div>
 
 </div>
 
+@section Scripts
+{
+    <script src="~/js/animal.js"></script>
+}

@@ -18,7 +18,7 @@
 
     <div class="card-body">
 
-        <table class="table table-bordered border-easy">
+        <table id="tblData" class="table table-bordered border-easy" style="width:100%">
 
             <thead>
 
@@ -48,68 +48,17 @@
                         Photo
                     </th>
 
-                    <th>
-                        <i class="bi bi-pencil-square"></i>
-                    </th>
-
                 </tr>
 
             </thead>
-
-            <tbody>
-
-                @foreach (var obj in Model.OrderBy(u => u.Id))
-                {
-
-                    <tr>
-
-                        <td>
-                            @obj.Animal.Name
-                        </td>
-
-                        <td>
-                            @obj.Animal.Age
-                        </td>
-
-                        <td>
-                            @obj.Animal.Species
-                        </td>
-
-                        <td>
-                            $@obj.Price
-                        </td>
-
-                        <td>
-                            @obj.Animal.Sex
-                        </td>
-
-                        <td>
-                            <img src="@obj.Animal.PhotoUrl"
-                                 width="80"
-                                 height="120"
-                                 class="animal-listing-img" />
-                        </td>
-
-                        <td>
-
-                            <div class="w-75 btn-group-md" role="group">
-
-                                <a asp-controller="Listing" asp-action="Add" asp-route-id="@obj.Id" class="btn btn-primary edit-btn crisp-text">
-                                    <i class="bi bi-pencil-square crisp-text"></i> Apply for adoption
-                                </a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                }
-
-            </tbody>
 
         </table>
 
     </div>
 
 </div>
+
+@section Scripts
+{
+    <script src="~/js/listing.js"></script>
+}

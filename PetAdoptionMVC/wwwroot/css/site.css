@@ -17,6 +17,12 @@ body {
     border-radius: 0.75rem 0.75rem;
 }
 
+h2.crisp-text {
+    margin-top: 0.5rem;
+}
+
+
+
 .card-header:first-child {
     border-radius: 0.75rem 0.75rem 0rem 0rem;
     box-shadow: 0rem .02rem .15rem;

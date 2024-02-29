@@ -24,7 +24,7 @@ namespace PetAdoption.Models
         public string? Description { get; set; }
 
         [DisplayName("Photo Url")]
-        public required string PhotoUrl { get; set; }
+        public string? PhotoUrl { get; set; }
 
         public static bool modelProvided(Animal animal)
         {

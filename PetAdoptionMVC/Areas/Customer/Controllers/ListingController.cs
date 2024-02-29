@@ -72,6 +72,30 @@ namespace PetAdoptionMVC.Areas.Customer.Controllers
 
             return View(objAnimalListings);
         }
+
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAllProductListings()
+        {
+            List<Listing> objProductListings =
+                _unitOfWork.listing.GetAll(includeProperties: "Product")
+                .Where(listing => listing.Product is not null).ToList();
+
+            return Json(new { data = objProductListings });
+        }
+        
+        [HttpGet]
+        public IActionResult GetAllAnimalListings()
+        {
+            List<Listing> objAnimalListings =
+                _unitOfWork.listing.GetAll(includeProperties: "Animal")
+                .Where(listing => listing.Animal is not null).ToList();
+
+            return Json(new { data = objAnimalListings });
+        }
+
+        #endregion
     }
 }
 
