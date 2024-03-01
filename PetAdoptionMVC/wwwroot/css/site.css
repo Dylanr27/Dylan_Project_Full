@@ -13,12 +13,28 @@ body {
     font-style: normal;
     letter-spacing: 0.3px;
 }
+.stick-me-top {
+    position:sticky;
+    top:0;
+    z-index:4;
+}
+.footer {
+    position: sticky;
+    bottom:0;
+}
+
+.hero-container {
+    top: 0;
+    background-color: #e0e0e0;
+    position: sticky;
+    z-index: 2;
+}
 
 /*hero image*/
 
 .hero-image {
-    position: fixed;
-    top:8%;
+    position: sticky;
+    top:5%;
     right:0%;
     border-radius: 25% 25% 0 0;
     /* Set the height to 30% of the viewport height */
@@ -34,6 +50,7 @@ body {
     background: url('../Images/Animals/istockphoto-992637094-1024x1024.jpg') no-repeat center center;
     /* Scale the background image to cover the entire element */
     background-size: cover;
+    z-index: 2;
 }
 
 /*end hero image*/
@@ -41,12 +58,14 @@ body {
 /*Home page*/
 
 .divider {
-    position:fixed;
+    position:sticky;
     top: 37.7vh;
     height: 5px;
-    background-color:black;
+    background-color:#9f9f9f;
     width: 10000px;
     margin-left: -1000px;
+    box-shadow: black 0.01rem 0.01rem 0.2rem;
+    z-index:3;
 
 }
 
