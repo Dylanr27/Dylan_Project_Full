@@ -1,5 +1,11 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+@media screen and (min-width: 720px) {
+    body {
+        overflow-x: hidden; /* Disable horizontal scrolling */
+    }
+}
+
 body {
     background-color: #e0e0e0;
     font-family: "Varela Round", sans-serif;
@@ -7,6 +13,84 @@ body {
     font-style: normal;
     letter-spacing: 0.3px;
 }
+
+/*hero image*/
+
+.hero-image {
+    position: fixed;
+    top:8%;
+    right:0%;
+    border-radius: 25% 25% 0 0;
+    /* Set the height to 30% of the viewport height */
+    height: 30vh;
+    /* Set the width to 100% of the viewport width */
+    width: 80%;
+    /* Set a maximum width if needed */
+    max-width: 100%;
+    /* Center the image if the viewport is wider than the max-width */
+    margin-right: 10%;
+    margin-left: 10%;
+    /* Add your image URL */
+    background: url('../Images/Animals/istockphoto-992637094-1024x1024.jpg') no-repeat center center;
+    /* Scale the background image to cover the entire element */
+    background-size: cover;
+}
+
+/*end hero image*/
+
+/*Home page*/
+
+.divider {
+    position:fixed;
+    top: 37.7vh;
+    height: 5px;
+    background-color:black;
+    width: 10000px;
+    margin-left: -1000px;
+
+}
+
+.home-card-container {
+    width: 90%;
+    margin: auto;
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Distribute cards evenly */
+    margin-top: 50px;
+}
+
+.home-card {
+    align-items: center;
+    background-color: #b5cece;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px; /* Add vertical spacing */
+    max-width: 220px;
+    width: 22vw; /* Adjust card width as needed */
+}
+
+.home-card-image img {
+    border-bottom: 1px solid black;
+    border-radius: 5% 5% 0 0;
+    width: 220px;
+    height: 200px;
+}
+
+.home-card-content {
+    padding: 10px;
+}
+
+
+
+
+
+
+/*End home page*/
 
 .edit-btn {
     padding-left: 1.1035rem;
