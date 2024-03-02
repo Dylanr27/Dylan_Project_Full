@@ -19,8 +19,8 @@ body {
     z-index:4;
 }
 .footer[b-4kzzd6pesj] {
+    position: fixed;
     bottom: 0;
-    position: sticky;
 }
 
 .hero-container {

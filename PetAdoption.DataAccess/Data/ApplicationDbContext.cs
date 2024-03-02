@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PetAdoption.Models;
 
 
 namespace PetAdoption.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
             : base(options) 
@@ -18,6 +20,9 @@ namespace PetAdoption.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Needed for IdentityDbContext
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Animal>().HasData(
                 new Animal 
                 {
