@@ -18,38 +18,32 @@ body {
     top:0;
     z-index:4;
 }
-.footer {
+.footer[b-4kzzd6pesj] {
+    bottom: 0;
     position: sticky;
-    bottom:0;
 }
 
 .hero-container {
-    top: 0;
     background-color: #e0e0e0;
+    margin-top: -6vh;
     position: sticky;
-    z-index: 2;
+    top: 0;
 }
 
 /*hero image*/
 
 .hero-image {
-    position: sticky;
-    top:5%;
-    right:0%;
-    border-radius: 25% 25% 0 0;
-    /* Set the height to 30% of the viewport height */
+    background: url('../Images/Animals/istockphoto-992637094-1024x1024.jpg') no-repeat center center;
+    background-size: cover;
     height: 30vh;
-    /* Set the width to 100% of the viewport width */
-    width: 80%;
-    /* Set a maximum width if needed */
-    max-width: 100%;
-    /* Center the image if the viewport is wider than the max-width */
     margin-right: 10%;
     margin-left: 10%;
-    /* Add your image URL */
-    background: url('../Images/Animals/istockphoto-992637094-1024x1024.jpg') no-repeat center center;
-    /* Scale the background image to cover the entire element */
-    background-size: cover;
+    max-width: 100%;
+    margin-top: 8vh;
+    position: sticky;
+    right:0%;
+    top:0;
+    width: 80%;
     z-index: 2;
 }
 
