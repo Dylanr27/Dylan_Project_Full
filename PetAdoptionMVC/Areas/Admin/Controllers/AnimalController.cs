@@ -3,10 +3,14 @@ using PetAdoption.Models;
 using PetAdoption.DataAccess.Data;
 using PetAdoption.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
+using PetAdoption.Utility;
 
 namespace PetAdoptionMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class AnimalController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
