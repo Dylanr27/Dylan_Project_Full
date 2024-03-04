@@ -14,7 +14,8 @@ namespace PetAdoption.Models
         [Key]
         public int Id { get; set; }
 
-        public required decimal Price { get; set; }
+        [Required]
+        public decimal Price { get; set; }
 
         public int? ProductId { get; set; }
         [ForeignKey("ProductId")]

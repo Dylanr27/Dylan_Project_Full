@@ -35,7 +35,7 @@ body {
 .hero-image {
     background: url('../Images/Animals/istockphoto-992637094-1024x1024.jpg') no-repeat center center;
     background-size: cover;
-    height: 30vh;
+    height: 20vh;
     margin-right: 10%;
     margin-left: 10%;
     max-width: 100%;

@@ -10,18 +10,22 @@ namespace PetAdoption.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [MaxLength(30)]
         [DisplayName("Product Brand")]
-        public required string Brand { get; set; }
+        public string Brand { get; set; }
 
-        public required string Type { get; set; }
+        [Required]
+        public string Type { get; set; }
 
         //[EndsWith(".")]
-        public required string Description { get; set; }
+        [Required]
+        public string Description { get; set; }
 
+        [Required]
         [DisplayName("Available Quantity")]
         [Range(1,1000)]
-        public required int AvailableQuantity { get; set; }
+        public int AvailableQuantity { get; set; }
 
         public string? PhotoUrl { get; set; }
 

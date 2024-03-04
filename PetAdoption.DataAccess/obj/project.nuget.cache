@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SHQPhPGK5iPzjLqPl2+WuBkSEJ14YUimt3u1KWNxFX3H1Mcol4K2QcNJRgPP7XQMyJzrIftyZ7HEmmo3CLajGQ==",
+  "dgSpecHash": "2QxqyPNHhNK8tqMPEy/3NgGniEMqiBaqkIHwUYpVoSPxZZhD4jBpbf3RzYSIYfhKmv1M7gzhFaAMp5V0WBxx7Q==",
   "success": true,
-  "projectFilePath": "C:\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\djreg\\OneDrive\\Documents\\Renton-Technical-College\\Winter-2024\\CSI-340\\Dylan_Project_Full\\PetAdoption.DataAccess\\PetAdoption.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\djreg\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -10,6 +10,7 @@
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.2\\microsoft.aspnetcore.cryptography.internal.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.2\\microsoft.aspnetcore.cryptography.keyderivation.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\8.0.2\\microsoft.aspnetcore.identity.entityframeworkcore.8.0.2.nupkg.sha512",
+    "C:\\Users\\djreg\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.2\\microsoft.aspnetcore.identity.ui.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",
@@ -32,6 +33,8 @@
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
+    "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\8.0.2\\microsoft.extensions.fileproviders.embedded.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.identity.core\\8.0.2\\microsoft.extensions.identity.core.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.identity.stores\\8.0.2\\microsoft.extensions.identity.stores.8.0.2.nupkg.sha512",
     "C:\\Users\\djreg\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",

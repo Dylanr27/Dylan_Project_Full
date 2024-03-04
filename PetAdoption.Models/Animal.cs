@@ -8,12 +8,14 @@ namespace PetAdoption.Models
         [Key]
         public int Id { get; set; }
 
-        public required string Name { get; set; }
+        [Required]
+        public string Name { get; set; }
 
         [Range(0, 30, ErrorMessage = "Age must be between 0-30")]
         public int? Age { get; set; }
 
-        public required string Species { get; set; }
+        [Required]
+        public  string Species { get; set; }
 
         public string? Breed { get; set; }
 
