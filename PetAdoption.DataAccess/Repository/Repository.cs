@@ -20,7 +20,6 @@ namespace PetAdoption.DataAccess.Repository
             _db = db;
 
             this.dbSet = _db.Set<T>();
-            //_db.Animal == dbSet
 
             _db.Listing.Include(u => u.Animal).Include(u => u.Product);
 
